@@ -4,7 +4,7 @@ import { FormInputs, InputType } from "../../utils/FormFields";
 import { Direction, GridSystem, Justify } from "../GridLayout/Grid/Grid";
 import { Button } from "./Button/Button";
 import { InputDefault } from "./Inputs/InputDefault/InputDefault";
-import { SelectInput } from "./Inputs/Select/Select";
+import { Select } from "./Inputs/Select/Select";
 import { FormContainer, StyledForm } from "./style";
 import { DatePickerD } from "./Inputs/DatePicker/DatePicker";
 import { createMetaProperty } from "typescript";
@@ -42,7 +42,7 @@ export const Form: React.FC<IFormProps> = ({ op, initialData, justify="start", d
                                 item
                                 cols={campo.cols}
                             >
-                                <SelectInput
+                                <Select
                                     key={index}
                                     id={campo.id}
                                     value={dot.pick(campo.name, initialData)}

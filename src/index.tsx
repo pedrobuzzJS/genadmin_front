@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './app/styles/GlobalStyles';
-import { ConfigProvider } from 'antd';
-import ptBR from 'antd/lib/locale/pt_BR'
+// import { ConfigProvider } from 'antd';
+// import ptBR from 'antd/lib/locale/pt_BR'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <>
-    <ConfigProvider locale={ptBR}>
+  <React.StrictMode>
+    {/* <ConfigProvider locale={ptBR}> */}
       <App />
       <GlobalStyles />
-    </ConfigProvider>
-  </>
+    {/* </ConfigProvider> */}
+  </React.StrictMode>
   // <React.StrictMode>
   //   <App />
   //   <GlobalStyles />

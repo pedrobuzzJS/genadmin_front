@@ -12,7 +12,6 @@ import {    SideBar,
             HambugerMenu,
             SideBarItemList
 } from "./style";
-import { Progress } from "antd";
 
 export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
     const { data, loadding } = useFetch<LinkMenu[]>("menu");
@@ -91,10 +90,10 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
                 </ExitSection>
             </SideBar>
             <TopMenu>
-                <Progress
+                {/* <Progress
                     percent={100}
                     className="loadingBar"
-                />
+                /> */}
                 <HambugerMenu>    
                     <Menu
                         onClick={toggleSideBar}

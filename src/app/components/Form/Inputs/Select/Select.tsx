@@ -1,9 +1,7 @@
-import React, { SelectHTMLAttributes, useEffect, useRef, useState } from "react";
+import React, { SelectHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
 import { useForm } from "../../../../context/formContext";
 import { SelectList } from "../../../../utils/SelectList";
-// import Select from "react-select";
-import { Select, RefSelectProps } from "antd";
-import { useFetch } from "../../../../hooks/useFetch";
+import { SelectContainer } from "./style";
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     id: any;
@@ -20,38 +18,50 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     disabled?: boolean;
 };
 
-export const SelectInput: React.FC<SelectProps> = ({ id, name, value, listOptions, label, pixels, ...props }) => {
+export const Select: React.FC<SelectProps> = ({ id, name, value, listOptions, label, pixels, ...props }) => {
     const [ selectdOptions, setSelectdOptions ] = useState();
-    const inputSelectRef = useRef<RefSelectProps>(null);
-    const { data: status } = useFetch<any[]>("status");
-    // const statusOptions: any = status?.map(item => { return { value: item?.id, label: item?.name } });
+    const inputSelectRef = useRef<any>(null);
 
     const { sendValues, inputArrayValues, setFormField } = useForm();
-    console.log(listOptions)
 
-    // useEffect(() => {
-    //     setFormField({
-    //         name: inputSelectRef.current.name,
-    //         ref: inputSelectRef.current
-    //     });
-    // }, [setFormField]);
+    useEffect(() => {
+        setFormField({
+            name: inputSelectRef.current?.name,
+            ref: inputSelectRef.current
+        });
+    }, [setFormField]);
 
     return (
-        <>
+        <SelectContainer>
             <label htmlFor={id}>
                 <span>
                     {label}
                 </span>
             </label>
-            <Select
+            <select
+                name={name}
                 id={id}
-                ref={inputSelectRef}
-                options={listOptions}
                 value={value}
-                style={{
-                    width: "95%"
-                }}
-            />
-        </>
+                ref={inputSelectRef}
+                {...props}>
+                <option
+                    value=""
+                    disabled
+                    >Selecione
+                </option>
+                {listOptions?.map((item, index) => {
+                            return (
+                                <option
+                                    key={index}
+                                    value={item.key}
+                                    >
+                                        {item.value}
+                                </option>        
+                            )
+                        }
+                    )
+                }
+            </select>
+        </SelectContainer>
     );
 };

@@ -1,32 +1,47 @@
 import styled from "styled-components";
 
 interface InputProps {
-    focus?: boolean | any;
+    // focus: boolean;
     error: boolean;
 };
 
 export const InputContainerWrapper = styled.div<InputProps>`
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    border: ${({ focus }) => (focus ? '2px solid #0a6ed1' : '2px solid var(--input-border)')};
-
-    > label {
-        display: flex;
-        justify-content: space-between;
-
-        > span {
-            color: black;
-            font-size: 12px;
+    > div {
+        padding: 5px;
+        > input {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            line-height: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            border-radius: 6px;
+            -webkit-appearance: none;
+            color: var(--input-color);
+            border: 1px solid var(--input-border);
+            background: var(--input-background);
+            transition: border .3s ease;
+            width: 95%;
+            height: 40px;
+            &::placeholder {
+                color: var(--input-placeholder);
+            }
+            &:focus {
+                outline: none;
+                /* border-color: #0a6ed1; */
+                border: 2px solid #0a6ed1;
+            }
         }
-    }
-
-    > input {
-        /* width: 95%; */
     }
 `;
 
 export const InputLabel = styled.label``;
+
+export const InputDiv = styled.div`
+    > input {
+    }
+`;
 
 export const StyledError = styled.h1`
 `;
