@@ -4,6 +4,7 @@ import { FieldTypes, GridFields } from "../../utils/Fields";
 import { Operation } from "../../utils/Operation";
 import { Button } from "../Form/Button/Button";
 import { ButtonContainer, ButtonContainerGrid, Container, LoaderAltIcon, OrderColumnIcon, StyledTable, Tbody, TbodyTR, TbodyTRTD, TbodyTRTH, Thead, TheadTH, TheadTR } from "./style";
+import { Blocks } from  'react-loader-spinner'
 
 interface GridProps {
     columns: GridFields[],
@@ -200,6 +201,14 @@ export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, p
                     </StyledTable>
                 </>
                 }
+                <Blocks
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                />
             </Container>
         </>
     )
