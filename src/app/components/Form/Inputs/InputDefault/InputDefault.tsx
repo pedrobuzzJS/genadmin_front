@@ -1,8 +1,7 @@
 import React, { InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
-import { InputContainerWrapper, StyledError } from "./style";
+import { InputContainerWrapper, InputDiv, StyledError } from "./style";
 import Masks from "../Masks/Masks";
 import { useForm } from "../../../../context/formContext";
-import { Input, InputRef } from "antd";
 
 export type FormInputTypes = "text" | "email" | "password" | "button" | "color" | "file" | "cpf"
                         | "currency" | "cep" | "date" | "number";
@@ -14,7 +13,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string;
     type?: FormInputTypes;
     initialData?: {};
-    disabled?: boolean;
 };
 
 export const InputDefault: React.FC<InputProps> = ({ 
@@ -24,14 +22,11 @@ export const InputDefault: React.FC<InputProps> = ({
     placeholder,
     label,
     initialData,
-    disabled,
     ...props
 }) => {
     var dot = require('dot-object');
-    const [ isFocused, setIsFocused ] = useState<Boolean>(false);
-    const [ inputErro, setInputErro ] = useState<boolean>(false);
-    const [ error, setError ] = useState<string | null>(null);
-    const inputRef = useRef<InputRef>(null);
+    const [ error ] = useState<string | null>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const [ inputValue, setInputValue ] = useState<any>();
 
     const { setFormField } = useForm();
@@ -42,22 +37,10 @@ export const InputDefault: React.FC<InputProps> = ({
 
     useEffect(() => {
         setFormField({
-            name: inputRef?.current?.input?.name,
-            ref: inputRef?.current?.input
+            name: inputRef.current?.name,
+            ref: inputRef.current
         });
     }, [setFormField]);
-
-    const handleInputFocus = useCallback(() => {
-        setIsFocused(true);
-    }, []);
-
-    const handleInputBlur = useCallback(() => {
-        setIsFocused(false);
-    }, []);
-
-    const handleInputError = useCallback(() => {
-
-    }, []);
 
     const handleOnChange = useCallback(
         (e: React.FormEvent<HTMLInputElement>) => {
@@ -87,39 +70,32 @@ export const InputDefault: React.FC<InputProps> = ({
 
     return (
         <>
-            {/* <InputContainerWrapper
+            <InputContainerWrapper
                 error={Boolean(error)}
-                focus={isFocused}
-            > */}
+            >
                 <label htmlFor={id}>
                     <span>
                         {label}
-                        <span>
-                            {/* * */}
-                        </span>
-                    </span>
-                    <span>
-                        {/* Erro */}
                     </span>
                 </label>
-                <Input
-                    placeholder={placeholder}
-                    ref={inputRef}
-                    name={name}
-                    id={id}
-                    onChange={handleOnChange}
-                    // onFocus={handleInputFocus}
-                    onBlur={handleInputBlur}
-                    value={inputValue}
-                    disabled={disabled}
-                    style={{width: '95%'}}
-                />
+                <InputDiv>
+                    <input
+                        ref={inputRef}
+                        type={type}
+                        name={name}
+                        id={id}
+                        onChange={handleOnChange}
+                        placeholder={placeholder}
+                        value={inputValue}
+                        {...props}
+                    />
+                </InputDiv>
                 { error && 
                     <StyledError>
                         {error}
                     </StyledError>
                 }
-            {/* </InputContainerWrapper> */}
+            </InputContainerWrapper>
         </>
     );
 };

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useForm } from "../../../../context/formContext";
 // import type { DatePickerProps } from "antd";
 import dayjs from "dayjs";
-import { DatePicker, DatePickerProps } from "antd";
+// import { DatePicker, DatePickerProps } from "antd";
 
 interface IDatePicker {
   id: any;
@@ -33,10 +33,10 @@ useEffect(() => {
 }, [setFormField]);
 
 
-  const handleOnChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(inputRef?.current);
-    setInputValue(date);
-  };
+  // const handleOnChange: DatePickerProps['onChange'] = (date, dateString) => {
+  //   console.log(inputRef?.current);
+  //   setInputValue(date);
+  // };
 
   return (
     <>
@@ -46,7 +46,7 @@ useEffect(() => {
                 {label}
             </span>
         </label>
-        <DatePicker
+        {/* <DatePicker
             id={id}
             format="DD/MM/YYYY"
             ref={inputRef}
@@ -55,7 +55,7 @@ useEffect(() => {
             style={{
                 width: "95%"
             }}
-        />
+        /> */}
     {/* // </InputContainerWrapper> */}
     </>
 );
