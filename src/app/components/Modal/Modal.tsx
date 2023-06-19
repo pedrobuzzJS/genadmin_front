@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect } from "react";
-import { Container, ModalBackGround, ModalCloseButton } from "./style";
+import { Container, ModalBackGround, ModalCloseButton, ModalFooter, ModalHeader } from "./style";
 interface IModalProps extends PropsWithChildren {
     id: string;
     openModal: boolean;
@@ -42,7 +42,7 @@ export const Modal: React.FC<IModalProps> = ({
         if (closeOnEsc && openModal === true) {
             window.addEventListener('keydown', handleKeyUp);
         }
-    }, [openModal]);
+    }, [closeOnEsc, handleKeyUp, openModal]);
 
     return (
         <>
@@ -53,10 +53,14 @@ export const Modal: React.FC<IModalProps> = ({
                         onClick={handleBackGroundClick}
                     >
                         <Container>
-                            <ModalCloseButton 
-                                onClick={closeModal}
-                            />
+                            <ModalHeader>
+
+                                <ModalCloseButton 
+                                    onClick={closeModal}
+                                />
+                            </ModalHeader>
                             {children}
+                            <ModalFooter />
                         </Container>
                     </ModalBackGround>
                 </>

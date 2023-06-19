@@ -6,7 +6,7 @@ import { useFetch } from "../../../../hooks/useFetch";
 import { FormInputs, InputType } from "../../../../utils/FormFields";
 import { SelectList } from "../../../../utils/SelectList";
 
-export const TipoDespesaCadastro: React.FC = () => {
+export const ExpenseTypeForm: React.FC = () => {
     const { data: status } = useFetch<any[]>("status");
     // const statusOptions: any = status?.map(item => { return { value: item?.id, label: item?.name } });
     const [ statusOption, setStatusOptions ] = useState<any>(status?.map(item => { return { value: item?.id, label: item?.name } }))

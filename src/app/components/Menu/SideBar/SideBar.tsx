@@ -81,13 +81,13 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
                                         )
                     }
                 </SideBarItemList>
-                <ExitSection
+                {/* <ExitSection
                     disabled={isSideBarOpen}
                 >
                     <Exit
                         onClick={signOut}
                     />
-                </ExitSection>
+                </ExitSection> */}
             </SideBar>
             <TopMenu>
                 {/* <Progress

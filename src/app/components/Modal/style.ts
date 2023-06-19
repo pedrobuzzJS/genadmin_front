@@ -18,7 +18,7 @@ export const Container = styled.div`
     transform: translate(-50%, -50%);
     padding: 150px;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 6px;
     color: black;
     border: 2px solid black;
     position: fixed;
@@ -26,12 +26,30 @@ export const Container = styled.div`
 
 export const ModalCloseButton = styled(Close)`
     position: absolute;
-    background: transparent;
+    /* background: transparent; */
     right: 5px;
-    top: 5px;
+    top: 2px;
     cursor: pointer;
     display: block;
     padding: 2px;
-    width: 45px;
-    height: 55px;
+    width: 30px;
+    height: 30px;
+`;
+
+export const ModalHeader = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    background: var(--input-placeholder);
+`;
+
+export const ModalFooter = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    background: var(--input-placeholder);
 `;

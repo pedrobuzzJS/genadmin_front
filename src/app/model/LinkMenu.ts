@@ -1,6 +1,3 @@
-import React from "react";
-// import { IconBaseProps } from "react-icons";
-
 export interface LinkMenu {
     id:                 number;
     name:               string;

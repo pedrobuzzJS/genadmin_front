@@ -5,7 +5,7 @@ import { useFetch } from "../../../../hooks/useFetch";
 import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { Form } from "../../../../components/Form/Form";
 
-export const StatusCadastro: React.FC = () => {
+export const StatusForm: React.FC = () => {
   const [ inputs ] = useState<FormInputs[]>([
     {
         key: true,

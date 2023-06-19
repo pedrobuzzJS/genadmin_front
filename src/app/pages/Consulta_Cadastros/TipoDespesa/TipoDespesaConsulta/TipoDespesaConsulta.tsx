@@ -7,7 +7,7 @@ import { FieldTypes, GridFields } from "../../../../utils/Fields";
 import { Operation } from "../../../../utils/Operation";
 import { Modal } from "../../../../components/Modal/Modal";
 
-export const TipoDespesaConsulta: React.FC = () => {
+export const ExpenseTypeList: React.FC = () => {
     const { data } = useFetch("tipo-despesa");
     const [ mod, setMod ] = useState(false);
     const [ campos ] = useState<GridFields[]>(

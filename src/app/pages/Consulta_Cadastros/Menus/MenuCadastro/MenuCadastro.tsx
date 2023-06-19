@@ -4,8 +4,9 @@ import { Form } from "../../../../components/Form/Form";
 import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { useFetch } from "../../../../hooks/useFetch";
 import { FormInputs, InputType } from "../../../../utils/FormFields";
+import { Editor } from "primereact/editor";
 
-export const MenuCadastro: React.FC = () => {
+export const MenuForm: React.FC = () => {
     const [ inputs ] = useState<FormInputs[]>([
         {
             key: true,
@@ -130,6 +131,8 @@ export const MenuCadastro: React.FC = () => {
             id: id
         }
     });
+    const [text, setText] = useState<any>('');
+
 
     return (
         <>

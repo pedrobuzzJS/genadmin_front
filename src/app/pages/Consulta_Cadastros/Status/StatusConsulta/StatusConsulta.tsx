@@ -5,35 +5,14 @@ import { Operation } from "../../../../utils/Operation";
 import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { DataGrid } from "../../../../components/DataTable/DataTable";
 
-export const StatusConsulta: React.FC = () => {
+export const StatusList: React.FC = () => {
     const { data } = useFetch("status");
     const [ campos ] = useState<GridFields[]>(
         [
-            {
-                key: true,
-                field: "id",
-                title: "ID",
-                description: "id",
-                type: FieldTypes.KEY,
-            },
-            {
-                field: "name",
-                title: "Nome",
-                description: "Nome",
-                type: FieldTypes.TEXT,
-            },
-            {
-                field: "description",
-                title: "Descrição",
-                description: "Descrição",
-                type: FieldTypes.TEXT,
-            },
-            {
-                field: "color",
-                title: "Cor",
-                description: "Cor",
-                type: FieldTypes.TEXT,
-            },
+            {key: true,field: "id",title: "ID",description: "id",type: FieldTypes.KEY,},
+            {field: "name",title: "Nome",description: "Nome",type: FieldTypes.TEXT,},
+            {field: "description",title: "Descrição",description: "Descrição",type: FieldTypes.TEXT,},
+            {field: "color",title: "Cor",description: "Cor",type: FieldTypes.TEXT,},
             {
                 field: "buttons",
                 title: "Acoes",
@@ -78,7 +57,7 @@ export const StatusConsulta: React.FC = () => {
     return (
         <>
             <GridSystem container justify="center">
-                <GridSystem item cols={12}>
+                <GridSystem item cols={10}>
                     <DataGrid 
                         columns={campos} 
                         initialData={data}

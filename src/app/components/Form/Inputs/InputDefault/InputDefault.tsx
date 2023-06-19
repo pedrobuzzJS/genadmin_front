@@ -1,7 +1,11 @@
 import React, { InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
 import { InputContainerWrapper, InputDiv, StyledError } from "./style";
 import Masks from "../Masks/Masks";
+import { InputText } from 'primereact/inputtext';
 import { useForm } from "../../../../context/formContext";
+import { Chips } from 'primereact/chips';
+import { InputMask } from 'primereact/inputmask';
+import { Editor } from 'primereact/editor';
 
 export type FormInputTypes = "text" | "email" | "password" | "button" | "color" | "file" | "cpf"
                         | "currency" | "cep" | "date" | "number";
@@ -79,7 +83,7 @@ export const InputDefault: React.FC<InputProps> = ({
                     </span>
                 </label>
                 <InputDiv>
-                    <input
+                    <InputText
                         ref={inputRef}
                         type={type}
                         name={name}

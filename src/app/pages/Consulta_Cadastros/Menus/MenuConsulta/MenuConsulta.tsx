@@ -6,9 +6,13 @@ import { useFetch } from "../../../../hooks/useFetch";
 import { LinkMenu } from "../../../../model/LinkMenu";
 import { FieldTypes, GridFields } from "../../../../utils/Fields";
 import { Operation } from "../../../../utils/Operation";
+import { Button } from "../../../../components/Form/Button/Button";
+import { MenuForm } from "../MenuCadastro/MenuCadastro";
+import { Modal } from "../../../../components/Modal/Modal";
 
-export const MenuConsulta: React.FC = () => {
+export const MenuList: React.FC = () => {
     const { data: menus, loadding } = useFetch<LinkMenu[]>("menu");
+    const [ showModal, setShowModal ] = useState<boolean>(false);
     const [ campos ] = useState<GridFields[]>([
         { key: true, field: "id", title: "ID", description: "id", type: FieldTypes.KEY},
         { field: "name", title: "Nome", description: "Nome", type: FieldTypes.TEXT, },
@@ -31,6 +35,10 @@ export const MenuConsulta: React.FC = () => {
         }
     ]);
 
+    const openModalForm = () => {
+        setShowModal(true);
+    };
+
     return (
         <>
             <Filters />
@@ -50,7 +58,14 @@ export const MenuConsulta: React.FC = () => {
                         loading={loadding}
                     />
                 </GridSystem>
+                <Button
+                    buttonDescription={"Teste de ModalForm"}
+                    onClick={openModalForm}
+                />
             </GridSystem>
+            <Modal id={'sim'} openModal={showModal} closeModal={() => setShowModal(false)}>
+                <MenuForm />
+            </Modal>
         </>
     );
 };

@@ -78,7 +78,7 @@ export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, p
     }, []);
 
     const buttonInserFormValues = useCallback( (op: number) => {
-        let url = pathMantencao + "-manutencao" + `/${op}`;
+        let url = pathMantencao + `-manutencao/${op}`;
         return navigate("/"+url);
     }, [navigate, pathMantencao] );
 
