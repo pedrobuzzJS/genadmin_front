@@ -118,9 +118,10 @@ export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, p
                     className="dataTable"
                     size="small"
                     scrollable
-                    scrollHeight="400px"
+                    // scrollHeight="700px"
                     // showGridlines
                     // style={
+                    loading={false}
                         
                     // }
                 >

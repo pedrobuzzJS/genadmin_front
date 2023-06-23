@@ -25,7 +25,7 @@ export const StatusList: React.FC = () => {
     return (
         <>
             <GridSystem container justify="center">
-                <GridSystem item cols={8}>
+                <GridSystem item cols={12}>
                     <DataGrid
                         columns={campos}
                         initialData={data}
