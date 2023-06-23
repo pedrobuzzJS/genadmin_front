@@ -4,65 +4,41 @@ import { FieldTypes, GridFields } from "../../../../utils/Fields";
 import { Operation } from "../../../../utils/Operation";
 import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { DataGrid } from "../../../../components/DataTable/DataTable";
+import { GlobalTable } from "../../Menus/MenuConsulta/test";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Blocks } from "react-loader-spinner";
+import { Editor } from "primereact/editor";
 
 export const StatusList: React.FC = () => {
-    const { data } = useFetch("status");
+    const { data } = useFetch<any>("status");
     const [ campos ] = useState<GridFields[]>(
         [
-            {key: true,field: "id",title: "ID",description: "id",type: FieldTypes.KEY,},
-            {field: "name",title: "Nome",description: "Nome",type: FieldTypes.TEXT,},
-            {field: "description",title: "Descrição",description: "Descrição",type: FieldTypes.TEXT,},
-            {field: "color",title: "Cor",description: "Cor",type: FieldTypes.TEXT,},
-            {
-                field: "buttons",
-                title: "Acoes",
-                description: "Acoes",
-                type: FieldTypes.BUTTON,
-                buttons: [
-                    {
-                        button: "status",
-                        action: Operation.DROP,
-                        title: "",
-                        icon: "RiIcons.RiDashboardFill",
-                        rotina: "status",
-                        // dropDownButtons: [
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.VIEW,
-                        //         title: "Visualizar",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.ALTER,
-                        //         title: "Alterar",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.DELETE,
-                        //         title: "Deletar    ",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        // ]
-                    }
-                ]
-            }
+            { field: "id", title: "ID", description: "id"},
+            { field: "name", title: "Nome", description: "Nome"},
+            { field: "description", title: "Descrição", description: "Descrição"},
+            { field: "color", title: "Cor", description: "Cor"},
+            { field: "buttons", title: "Acoes", description: "Acoes"}
         ]
     );
 
     return (
         <>
             <GridSystem container justify="center">
-                <GridSystem item cols={10}>
-                    <DataGrid 
-                        columns={campos} 
+                <GridSystem item cols={8}>
+                    <DataGrid
+                        columns={campos}
                         initialData={data}
-                        pathMantencao="status"
                     />
+                    {/* <i className="pi pi-spin pi-spinner" style={{'fontSize': '20px'}}></i> */}
+                    {/* <Blocks
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="blocks-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="blocks-wrapper"
+                    /> */}    
                 </GridSystem>
             </GridSystem>
         </>

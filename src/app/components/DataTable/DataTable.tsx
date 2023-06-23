@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { FieldTypes, GridFields } from "../../utils/Fields";
 import { Operation } from "../../utils/Operation";
 import { Button } from "../Form/Button/Button";
-import { ButtonContainer, ButtonContainerGrid, Container, LoaderAltIcon, OrderColumnIcon, StyledTable, Tbody, TbodyTR, TbodyTRTD, TbodyTRTH, Thead, TheadTH, TheadTR } from "./style";
+import { ButtonContainer, ButtonContainerGrid, Container, DataTableStyle, LoaderAltIcon, OrderColumnIcon, StyledTable, Tbody, TbodyTR, TbodyTRTD, TbodyTRTH, Thead, TheadTH, TheadTR } from "./style";
 import { Blocks } from  'react-loader-spinner'
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Editor } from "primereact/editor";
 
 interface GridProps {
     columns: GridFields[],
@@ -103,113 +106,29 @@ export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, p
             break;
         }
     }, [buildMaintenanceURL]);
+    // const [text1, setText1] = useState<any>('<div>Hello World!</div><div>PrimeReact <b>Editor</b> Rocks</div><div><br></div>');
 
     return (
-        <>
-            <Container>
-                {loading ? 
-                    <LoaderAltIcon />
-                :
-                <>
-                    <ButtonContainer>
-                        <Button
-                            buttonDescription="Inserir"
-                            onClick={() => buttonInserFormValues(Operation.INSERT)}
-                        />
-                    </ButtonContainer>
-                    <StyledTable>
-                        <Thead>
-                            <TheadTR>
-                                {columns?.map( (column, index) => (
-                                <TheadTH
-                                    key={index}
-                                >
-                                    {column.title}
-                                    {/* <OrderColumnIcon
-                                       order={findValueById(order, column.field)}
-                                    /> */}
-                                </TheadTH>
-                                ) )}
-                            </TheadTR>
-                        </Thead>
-                        <Tbody>
-                            {teste && teste?.map((item, index) => (
-                            <TbodyTR
-                                key={index}
-                                isOdd={Boolean(index%2)}
-                            >
-                                {columns?.map( (column, index) => (
-                                    column.type === FieldTypes.TEXT
-                                ?
-                                    <TbodyTRTD
-                                        key={index}
-                                    >
-                                        {item[column?.field]}
-                                    </TbodyTRTD>
-                                :
-                                column.type === FieldTypes.KEY
-                                ?
-                                <TbodyTRTH
-                                    key={index}
-                                >
-                                    {item[column?.field]}
-                                </TbodyTRTH>
-                                :
-                                column.type === FieldTypes.BUTTON
-                                ?
-                                <TbodyTRTD
-                                    key={index}
-                                >
-                                    <ButtonContainerGrid
-                                        key={index}
-                                    >
-                                        {column.buttons?.map((btn, index) => (
-                                            <Button
-                                                key={index}
-                                                buttonDescription={btn.title}
-                                                isDropDown={true}
-                                                children={
-                                                    <>
-                                                        <Button
-                                                            buttonDescription="Visualizar"
-                                                            onClick={() => handdleSelectButtonActions(btn.button, Operation.VIEW, item.id)}
-                                                        />
-                                                        <Button
-                                                            buttonDescription="Alterar"
-                                                            onClick={() => handdleSelectButtonActions(btn.button, Operation.ALTER, item.id)}
-                                                        />
-                                                        <Button
-                                                            buttonDescription="Deletar"
-                                                            onClick={() => handdleSelectButtonActions(btn.button, Operation.DELETE, item.id)}
-                                                        />
-                                                    </>
-                                                }
-                                                
-                                            />
-                                        ))}
-                                    </ButtonContainerGrid>
-                                </TbodyTRTD>
-                                :
-                                <TbodyTRTD
-                                    key={index}
-                                >
-                                </TbodyTRTD>
-                                ) )}
-                            </TbodyTR>
-                            ))}
-                        </Tbody>
-                    </StyledTable>
-                </>
-                }
-                <Blocks
-                    visible={true}
-                    height="80"
-                    width="80"
-                    ariaLabel="blocks-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="blocks-wrapper"
-                />
-            </Container>
-        </>
+        <Container>
+            {/* <Editor style={{ height: '320px' }} value={text1} onTextChange={(e) => setText1(e.htmlValue)} /> */}
+            <DataTableStyle>
+                <DataTable
+                    value={initialData}
+                    stripedRows
+                    className="dataTable"
+                    size="small"
+                    scrollable
+                    scrollHeight="400px"
+                    // showGridlines
+                    // style={
+                        
+                    // }
+                >
+                    {columns.map((col, i) => (
+                        <Column key={col.field} field={col.field} header={col.title} />
+                    ))}
+                </DataTable>
+            </DataTableStyle>
+        </Container>
     )
 };

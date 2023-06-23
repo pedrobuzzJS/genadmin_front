@@ -4,7 +4,7 @@ export interface GridFields {
     field: string;
     title: string;
     description: string;
-    type: number;
+    type?: number;
     hidden?: boolean;
     key?: boolean;
     collor?: string;

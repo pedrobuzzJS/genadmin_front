@@ -33,8 +33,6 @@ export const Container = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
 	padding: 1rem;
-	/* box-shadow: 0 0 5px #333; */
-	box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
 	border: solid 1px #fff;
 	background-color: #fff;
 	border-radius: .4rem;
@@ -135,4 +133,46 @@ export const OrderColumnIcon = styled(ArrowDown)<ArrowFilter>`
     `}
 
     cursor: pointer;
+`;
+
+export const DataTableStyle = styled.div`
+    > h1 {
+        color: red;
+    }
+  > div {
+    
+    > div {
+        
+      > table {
+        width: 100%;
+
+        > thead {
+          text-align: left;
+          width: 100%;
+          position: sticky;
+          top: 0;
+
+          tr > {
+            height: 40px;
+
+            > th {
+              padding: 5px;
+              position: relative;
+              border: solid 1px #fff;
+              background-color: rgb(238 238 238 / 50%);
+              backdrop-filter: blur(5px);
+              border-radius: 0.5rem;
+            }
+          }
+        }
+
+        > tbody {
+          
+          > tr {
+            /* background: #fff; */
+          }
+        }
+      }
+    }
+  }
 `;

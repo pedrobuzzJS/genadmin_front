@@ -5,13 +5,15 @@ import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { useFetch } from "../../../../hooks/useFetch";
 import { LinkMenu } from "../../../../model/LinkMenu";
 import { FieldTypes, GridFields } from "../../../../utils/Fields";
-import { Operation } from "../../../../utils/Operation";
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 import { Button } from "../../../../components/Form/Button/Button";
 import { MenuForm } from "../MenuCadastro/MenuCadastro";
 import { Modal } from "../../../../components/Modal/Modal";
+import { GlobalTable } from "./test";
 
 export const MenuList: React.FC = () => {
-    const { data: menus, loadding } = useFetch<LinkMenu[]>("menu");
+    const { data: menus, loadding } = useFetch<any>("menu");
     const [ showModal, setShowModal ] = useState<boolean>(false);
     const [ campos ] = useState<GridFields[]>([
         { key: true, field: "id", title: "ID", description: "id", type: FieldTypes.KEY},
@@ -22,17 +24,17 @@ export const MenuList: React.FC = () => {
         { field: "parent_id", title: "Menu Pai", description: "Menu Pai", type: FieldTypes.TEXT },
         { field: "status_id", title: "Status ID", description: "status_id", type: FieldTypes.TEXT },
         { field: "created_at", title: "Criado em", description: "created_at", type: FieldTypes.TEXT },
-        { field: "buttons", title: "Acoes", description: "Acoes", type: FieldTypes.BUTTON,
-            buttons: [
-                {
-                    button: "menu",
-                    action: Operation.DROP,
-                    title: "",
-                    icon: "RiIcons.RiDashboardFill",
-                    rotina: "menu",
-                }
-            ]
-        }
+        // { field: "buttons", title: "Acoes", description: "Acoes", type: FieldTypes.BUTTON,
+        //     buttons: [
+        //         {
+        //             button: "menu",
+        //             action: Operation.DROP,
+        //             title: "",
+        //             icon: "RiIcons.RiDashboardFill",
+        //             rotina: "menu",
+        //         }
+        //     ]
+        // }
     ]);
 
     const openModalForm = () => {
@@ -41,7 +43,7 @@ export const MenuList: React.FC = () => {
 
     return (
         <>
-            <Filters />
+            {/* <Filters /> */}
             <GridSystem
                 container
                 justify="center"
@@ -51,21 +53,28 @@ export const MenuList: React.FC = () => {
                     item
                     cols={12}
                 >
-                    <DataGrid
+                    {/* <DataGrid
                         columns={campos} 
                         initialData={menus}
                         pathMantencao="menu"
                         loading={loadding}
-                    />
+                    /> */}
+                    <GlobalTable>
+                        <DataTable value={menus} stripedRows className="dataTable">
+                            {campos.map((col, i) => (
+                                <Column key={col.field} field={col.field} header={col.title} />
+                            ))}
+                        </DataTable>
+                    </GlobalTable>
                 </GridSystem>
-                <Button
+                {/* <Button
                     buttonDescription={"Teste de ModalForm"}
                     onClick={openModalForm}
-                />
+                /> */}
             </GridSystem>
-            <Modal id={'sim'} openModal={showModal} closeModal={() => setShowModal(false)}>
-                <MenuForm />
-            </Modal>
+            {/* <Modal id={'sim'} openModal={showModal} closeModal={() => setShowModal(false)}> */}
+                {/* <MenuForm /> */}
+            {/* </Modal> */}
         </>
     );
 };
