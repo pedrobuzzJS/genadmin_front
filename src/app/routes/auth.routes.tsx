@@ -4,7 +4,6 @@ import { SideBarLayout } from "../components/Menu/SideBar/SideBar";
 import { HomePage } from "../pages/Home/Home";
 import { SnackBarProvider } from "../context/snackBarContext";
 import { FormProvider } from "../context/formContext";
-import { FormFieldsTests } from "../pages/FormFieldsTests";
 import { ExpenseTypeList } from "../pages/Consulta_Cadastros/TipoDespesa/TipoDespesaConsulta/TipoDespesaConsulta";
 import { ExpenseTypeForm } from "../pages/Consulta_Cadastros/TipoDespesa/TipoDespesaCadastro/TipoDespesaCadastro";
 import { MenuList } from "../pages/Consulta_Cadastros/Menus/MenuConsulta/MenuConsulta";
@@ -32,8 +31,6 @@ const AuthRoutes = () => {
                                 <Route path="status" element={<RoleProvider children={<StatusList />} funcao={[""]}/>}/>
                                 <Route path="status-manutencao/:op/:id" element={<RoleProvider children={<StatusForm />} funcao={[""]}/>}/>
                                 <Route path="status-manutencao/:op" element={<RoleProvider children={<StatusForm />} funcao={[""]}/>}/>
-
-                                <Route path="fields-test" element={<RoleProvider children={<FormFieldsTests />} funcao={[""]}/>}/>
 
                                 <Route path="*" element={<h1>404</h1>} />
                             </Routes>

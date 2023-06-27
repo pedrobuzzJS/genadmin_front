@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from "react";
+import React, { PropsWithChildren, useCallback, useEffect } from "react";
 import { Container, ModalBackGround, ModalCloseButton, ModalFooter, ModalHeader } from "./style";
 interface IModalProps extends PropsWithChildren {
     id: string;
@@ -30,13 +30,13 @@ export const Modal: React.FC<IModalProps> = ({
         closeModal();
     };
 
-    const handleKeyUp = (e: any): any => {
+    const handleKeyUp = useCallback((e: any): any => {
         if (e.keyCode === ESC_KEY) {
             closeModal();
             return window.removeEventListener('keydown', handleKeyUp);
         }
         return;
-    };
+    }, [closeModal]);
 
     useEffect(() => {
         if (closeOnEsc && openModal === true) {

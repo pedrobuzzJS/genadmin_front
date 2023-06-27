@@ -33,10 +33,12 @@ export const Container = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
 	padding: 1rem;
-	border: solid 1px #fff;
-	background-color: #fff;
-	border-radius: .4rem;
+	/* border: solid 1px #fff; */
+	/* background-color: #fff; */
+    border-radius: 6px;
 	position: relative;
+    overflow-y: auto;
+    height: 100%;
 `;
 
 export const ButtonContainerGrid = styled.div`
@@ -133,8 +135,4 @@ export const OrderColumnIcon = styled(ArrowDown)<ArrowFilter>`
     `}
 
     cursor: pointer;
-`;
-
-export const DataTableStyle = styled.div`
-    
 `;
