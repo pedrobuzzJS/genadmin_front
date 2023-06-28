@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import { LinkMenu } from "../../../model/LinkMenu";
 import { Container, ImgContainer, LinkContainer, OpenContainer, StyledMenuText } from "./style";
 import { FaPix } from "react-icons/fa6";
+import { Icons } from "../../../helpers/Icons";
 
 export const SideBarItem: React.FC<LinkMenu> = ({
     id,
@@ -43,7 +44,7 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                                         isSubMenuOpen={isOpen}
                                         onClick={openSubMenuList}
                                     >
-                                        <FaPix/>
+                                        <Icons iconName="FaCaretDown"/>
                                     </ImgContainer>
                                 </>
                                 )
