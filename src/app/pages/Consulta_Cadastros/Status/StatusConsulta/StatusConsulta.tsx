@@ -4,11 +4,6 @@ import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
 import { DataGrid } from "../../../../components/DataTable/DataTable";
 import { GridFields } from "../../../../utils/Fields";
 import { Icons } from "../../../../helpers/Icons";
-import * as icons from "react-icons/fa6";
-
-
-
-
 
 export const StatusList: React.FC = () => {
     const { data } = useFetch<any>("status");
@@ -34,8 +29,9 @@ export const StatusList: React.FC = () => {
             </GridSystem>
             <Icons
                 iconName="FaPix"
-                size={50}
-                color="#2fb2a4"
+                size={50} 
+                color={'#2fb2a4'}
+                
             />
         </>
     );
