@@ -1,6 +1,4 @@
 import React, { PropsWithChildren, useState } from "react";
-import { Exit } from "styled-icons/boxicons-regular";
-import { Menu } from "styled-icons/entypo";
 import { useAuth } from "../../../context/authContext";
 import { useFetch } from "../../../hooks/useFetch";
 import { LinkMenu } from "../../../model/LinkMenu";
@@ -12,6 +10,7 @@ import {    SideBar,
             HambugerMenu,
             SideBarItemList
 } from "./style";
+import { FaPix } from "react-icons/fa6";
 
 export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
     const { data, loadding } = useFetch<LinkMenu[]>("menu");
@@ -95,7 +94,7 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
                     className="loadingBar"
                 /> */}
                 <HambugerMenu>    
-                    <Menu
+                    <FaPix
                         onClick={toggleSideBar}
                     />
                 </HambugerMenu>

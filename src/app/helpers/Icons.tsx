@@ -8,15 +8,15 @@ interface IconProps extends IconBaseProps {
 
 export const Icons: React.FC<IconProps> = ({iconName, title, size, color, ...props}) => {
   const [icon, setIcon] = useState<any>(iconName);
-  const Icon = icons[icon];
+  // const Icon = icons[icon];
 
   return (
     <>
-      <Icon
-        size={size}
-        color={color}
-        {...props}
-      />
+      {/* <Icon */}
+        {/* size={size} */}
+        {/* color={color} */}
+        {/* {...props} */}
+      {/* /> */}
     </>
   );
 };

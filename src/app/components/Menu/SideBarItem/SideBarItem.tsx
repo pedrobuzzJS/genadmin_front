@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { ChevronRight } from "styled-icons/evil";
 import { LinkMenu } from "../../../model/LinkMenu";
 import { Container, ImgContainer, LinkContainer, OpenContainer, StyledMenuText } from "./style";
+import { FaPix } from "react-icons/fa6";
 
 export const SideBarItem: React.FC<LinkMenu> = ({
     id,
@@ -43,7 +43,7 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                                         isSubMenuOpen={isOpen}
                                         onClick={openSubMenuList}
                                     >
-                                        <ChevronRight/>
+                                        <FaPix/>
                                     </ImgContainer>
                                 </>
                                 )

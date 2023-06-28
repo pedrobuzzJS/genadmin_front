@@ -1,5 +1,5 @@
+import { FaPix } from "react-icons/fa6";
 import styled from "styled-components";
-import { Close } from "@styled-icons/evil";
 
 export const ModalBackGround = styled.div`
     background: rgb(0,0,0, 0.5);
@@ -24,7 +24,7 @@ export const Container = styled.div`
     position: fixed;
 `;
 
-export const ModalCloseButton = styled(Close)`
+export const ModalCloseButton = styled(FaPix)`
     position: absolute;
     /* background: transparent; */
     right: 5px;

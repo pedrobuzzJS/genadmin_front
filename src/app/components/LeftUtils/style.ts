@@ -1,5 +1,5 @@
+import { FaPix } from "react-icons/fa6";
 import styled, { css } from "styled-components";
-import { Close } from "styled-icons/evil";
 
 interface LetfUtilsToggle {
     disabled: boolean;
@@ -22,7 +22,7 @@ export const Container = styled.div<LetfUtilsToggle>`
     z-index: 500;
 `;
 
-export const LeftUtilsCloseButton = styled(Close)`
+export const LeftUtilsCloseButton = styled(FaPix)`
     position: absolute;
     background: transparent;
     right: 5px;

@@ -1,10 +1,10 @@
+import { FaPix } from "react-icons/fa6";
 import styled, { css } from "styled-components";
-import { SortDown } from "styled-icons/boxicons-regular";
 
 export const ButtonConteinar = styled.div`
 `;
 
-export const DropDownOption = styled(SortDown)`
+export const DropDownOption = styled(FaPix)`
     width: 20px;
     height: 20px;
 `;

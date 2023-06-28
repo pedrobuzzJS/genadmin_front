@@ -1,13 +1,12 @@
 import styled, { css } from "styled-components";
-import { ArrowDown } from "styled-icons/bootstrap";
-import { LoaderAlt } from "styled-icons/boxicons-regular";
+import { FaPix } from "react-icons/fa6";
 import { ColumnOrder } from "./DataTable";
 
 interface TableRowProps {
     isOdd?: boolean
 }
 
-export const LoaderAltIcon = styled(LoaderAlt)`
+export const LoaderAltIcon = styled(FaPix)`
     width: 200px;
     height: 200px;
     opacity: 25%;
@@ -115,7 +114,7 @@ interface ArrowFilter {
     order?: ColumnOrder;
 }
 
-export const OrderColumnIcon = styled(ArrowDown)<ArrowFilter>`
+export const OrderColumnIcon = styled(FaPix)<ArrowFilter>`
     position: absolute;
     height: 20px;
     width: 20px;

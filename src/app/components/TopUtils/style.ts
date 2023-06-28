@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { Close } from "styled-icons/evil";
+// import { Close } from "styled-icons/evil";
+import { FaPix } from "react-icons/fa6";
 
 interface TopUtilsToggle {
     disabled: boolean;
@@ -22,7 +23,7 @@ export const Container = styled.div<TopUtilsToggle>`
     z-index: 500;
 `;
 
-export const TopUtilsCloseButton = styled(Close)`
+export const TopUtilsCloseButton = styled(FaPix)`
     position: absolute;
     background: transparent;
     right: 5px;
