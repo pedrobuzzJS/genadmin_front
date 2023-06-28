@@ -11,6 +11,7 @@ import {    SideBar,
             SideBarItemList
 } from "./style";
 import { FaPix } from "react-icons/fa6";
+import { Icons } from "../../../helpers/Icons";
 
 export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
     const { data, loadding } = useFetch<LinkMenu[]>("menu");
@@ -80,22 +81,13 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
                                         )
                     }
                 </SideBarItemList>
-                {/* <ExitSection
-                    disabled={isSideBarOpen}
-                >
-                    <Exit
-                        onClick={signOut}
-                    />
-                </ExitSection> */}
             </SideBar>
             <TopMenu>
-                {/* <Progress
-                    percent={100}
-                    className="loadingBar"
-                /> */}
-                <HambugerMenu>    
-                    <FaPix
+                <HambugerMenu>
+                    <Icons
+                        iconName={"FaBars"}
                         onClick={toggleSideBar}
+                        size={35}
                     />
                 </HambugerMenu>
             </TopMenu>

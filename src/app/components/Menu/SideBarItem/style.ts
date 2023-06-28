@@ -64,8 +64,8 @@ export const ImgContainer = styled.div<Toggle>`
 
     > svg {
         transition: 350ms;
-        width: 35px;
-        height: 35px;
+        /* width: 35px; */
+        /* height: 35px; */
         transform: ${({ isSubMenuOpen }) => (isSubMenuOpen && isSubMenuOpen === true ? css`rotate(90deg)` : '')};
 
         &:hover {
