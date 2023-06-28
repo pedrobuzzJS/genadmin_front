@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as icons from "react-icons/fa6";
 import { IconBaseProps } from "react-icons/lib";
 
@@ -7,16 +7,14 @@ interface IconProps extends IconBaseProps {
 }
 
 export const Icons: React.FC<IconProps> = ({iconName, title, size, color, ...props}) => {
-  const [icon, setIcon] = useState<any>(iconName);
-  // const Icon = icons[icon];
+  const Icon: any = icons[iconName as keyof object];
+  console.log(Object.keys(icons))
 
   return (
-    <>
-      {/* <Icon */}
-        {/* size={size} */}
-        {/* color={color} */}
-        {/* {...props} */}
-      {/* /> */}
-    </>
+      <Icon
+        size={size}
+        color={color}
+        {...props}
+      />
   );
 };

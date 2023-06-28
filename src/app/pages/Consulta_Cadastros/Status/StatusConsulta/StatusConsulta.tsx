@@ -34,7 +34,7 @@ export const StatusList: React.FC = () => {
             </GridSystem>
             <Icons
                 iconName="FaPix"
-                size={100}
+                size={50}
                 color="#2fb2a4"
             />
         </>
