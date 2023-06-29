@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { DataGrid } from "../../../../components/DataTable/DataTable";
-import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
-import { useForm } from "../../../../context/formContext";
-import { useFetch } from "../../../../hooks/useFetch";
-import { FieldTypes, GridFields } from "../../../../utils/Fields";
-import { Operation } from "../../../../utils/Operation";
-import { Modal } from "../../../../components/Modal/Modal";
+import { DataGrid } from "../../components/DataTable/DataTable";
+import { GridSystem } from "../../components/GridLayout/Grid/Grid";
+import { useFetch } from "../../hooks/useFetch";
+import { FieldTypes, GridFields } from "../../utils/Fields";
+import { Operation } from "../../utils/Operation";
 
 export const ExpenseTypeList: React.FC = () => {
     const { data } = useFetch("tipo-despesa");
-    const [ mod, setMod ] = useState(false);
     const [ campos ] = useState<GridFields[]>(
         [
             {
@@ -75,21 +72,12 @@ export const ExpenseTypeList: React.FC = () => {
     return (
         <>
             <GridSystem container justify="center">
-                <GridSystem item cols={12}>
-                    <DataGrid 
-                        columns={campos} 
-                        initialData={data}
-                        pathMantencao="tipo-despesa"
-                    />
-                </GridSystem>
+              <DataGrid
+                  columns={campos}
+                  initialData={data}
+                  col={8}
+              />
             </GridSystem>
-            <Modal
-                id="a"
-                openModal={mod}
-                closeModal={() => setMod(false)}
-            >
-                <h1>Modal</h1>
-            </Modal>
         </>
     );
 };

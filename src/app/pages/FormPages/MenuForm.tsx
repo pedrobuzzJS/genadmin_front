@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Form } from "../../../../components/Form/Form";
-import { GridSystem } from "../../../../components/GridLayout/Grid/Grid";
-import { useFetch } from "../../../../hooks/useFetch";
-import { FormInputs, InputType } from "../../../../utils/FormFields";
-import { Editor } from "primereact/editor";
+import { Form } from "../../components/Form/Form";
+import { GridSystem } from "../../components/GridLayout/Grid/Grid";
+import { useFetch } from "../../hooks/useFetch";
+import { FormInputs, InputType } from "../../utils/FormFields";
 
 export const MenuForm: React.FC = () => {
     const [ inputs ] = useState<FormInputs[]>([
@@ -131,8 +130,6 @@ export const MenuForm: React.FC = () => {
             id: id
         }
     });
-    const [text, setText] = useState<any>('');
-
 
     return (
         <>

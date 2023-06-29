@@ -1,15 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { RoleProvider } from "../context/RoleContext";
-import { SideBarLayout } from "../components/Menu/SideBar/SideBar";
-import { HomePage } from "../pages/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SnackBarProvider } from "../context/snackBarContext";
+import { SideBarLayout } from "../components/Menu/SideBar/SideBar";
 import { FormProvider } from "../context/formContext";
-import { ExpenseTypeList } from "../pages/Consulta_Cadastros/TipoDespesa/TipoDespesaConsulta/TipoDespesaConsulta";
-import { ExpenseTypeForm } from "../pages/Consulta_Cadastros/TipoDespesa/TipoDespesaCadastro/TipoDespesaCadastro";
-import { MenuList } from "../pages/Consulta_Cadastros/Menus/MenuConsulta/MenuConsulta";
-import { MenuForm } from "../pages/Consulta_Cadastros/Menus/MenuCadastro/MenuCadastro";
-import { StatusList } from "../pages/Consulta_Cadastros/Status/StatusConsulta/StatusConsulta";
-import { StatusForm } from "../pages/Consulta_Cadastros/Status/StatusCadastro/StatusCadastro";
+import { HomePage } from "../pages/Home/Home";
+import { ExpenseTypeList } from "../pages/ListPages/TipoDespesaConsulta";
+import { RoleProvider } from "../context/RoleContext";
+import { ExpenseTypeForm } from "../pages/FormPages/ExpensiveTypeForm";
+import { MenuList } from "../pages/ListPages/MenuList";
+import { MenuForm } from "../pages/FormPages/MenuForm";
+import { StatusList } from "../pages/ListPages/StatusList";
+import { StatusForm } from "../pages/FormPages/StatusForm";
+
 
 const AuthRoutes = () => {
     return (

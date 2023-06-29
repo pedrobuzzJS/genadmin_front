@@ -8,7 +8,6 @@ interface IconProps extends IconBaseProps {
 
 export const Icons: React.FC<IconProps> = ({iconName, title, size, color, ...props}) => {
   const Icon: any = icons[iconName as keyof object];
-  console.log(Object.keys(icons))
 
   return (
       <Icon
