@@ -23,7 +23,7 @@ export const MenuList: React.FC = () => {
             <DataGrid
                 columns={campos}
                 initialData={menus}
-                col={8}
+                col={12}
             />
           </GridSystem>
         </>

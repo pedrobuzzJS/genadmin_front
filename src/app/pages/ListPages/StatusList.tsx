@@ -22,7 +22,7 @@ export const StatusList: React.FC = () => {
             <DataGrid
                 columns={campos}
                 initialData={data}
-                col={8}
+                col={12}
             />
           </GridSystem>
         </>

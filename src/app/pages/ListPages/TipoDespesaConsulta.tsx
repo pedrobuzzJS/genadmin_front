@@ -9,63 +9,10 @@ export const ExpenseTypeList: React.FC = () => {
     const { data } = useFetch("tipo-despesa");
     const [ campos ] = useState<GridFields[]>(
         [
-            {
-                key: true,
-                field: "id",
-                title: "ID",
-                description: "id",
-                type: FieldTypes.KEY,
-            },
-            {
-                field: "name",
-                title: "Nome",
-                description: "Nome",
-                type: FieldTypes.TEXT,
-            },
-            {
-                field: "description",
-                title: "Descrição",
-                description: "Descrição",
-                type: FieldTypes.TEXT,
-            },
-            {
-                field: "buttons",
-                title: "Acoes",
-                description: "Acoes",
-                type: FieldTypes.BUTTON,
-                buttons: [
-                    {
-                        button: "tipo-despesa",
-                        action: Operation.DROP,
-                        title: "",
-                        icon: "RiIcons.RiDashboardFill",
-                        rotina: "tipo-despesa",
-                        // dropDownButtons: [
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.VIEW,
-                        //         title: "Visualizar",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.ALTER,
-                        //         title: "Alterar",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        //     {
-                        //         button: "tipo-despesa",
-                        //         action: Operation.DELETE,
-                        //         title: "Deletar    ",
-                        //         icon: "RiDashboardFill",
-                        //         rotina: "tipo-despesa",
-                        //     },
-                        // ]
-                    }
-                ]
-            }
+            { key: true,field: "id",title: "ID",description: "id",type: FieldTypes.KEY },
+            { field: "name",title: "Nome",description: "Nome",type: FieldTypes.TEXT },
+            { field: "description",title: "Descrição",description: "Descrição",type: FieldTypes.TEXT },
+            { field: "buttons",title: "Acoes",description: "Acoes",type: FieldTypes.TEXT },
         ]
     );
 
@@ -75,7 +22,7 @@ export const ExpenseTypeList: React.FC = () => {
               <DataGrid
                   columns={campos}
                   initialData={data}
-                  col={8}
+                  col={12}
               />
             </GridSystem>
         </>
