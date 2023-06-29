@@ -3,7 +3,6 @@ import { DataGrid } from "../../components/DataTable/DataTable";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { useFetch } from "../../hooks/useFetch";
 import { FieldTypes, GridFields } from "../../utils/Fields";
-import { Operation } from "../../utils/Operation";
 
 export const ExpenseTypeList: React.FC = () => {
     const { data } = useFetch("tipo-despesa");
