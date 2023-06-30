@@ -1,71 +1,30 @@
 import React, { PropsWithChildren, useCallback, useEffect } from "react";
 import { Container, ModalBackGround, ModalCloseButton, ModalFooter, ModalHeader } from "./style";
-interface IModalProps extends PropsWithChildren {
-    id: string;
-    openModal: boolean;
-    closeModal: () => void;
-    backGroundClose?: boolean;
-    closeOnEsc?: boolean;
-    onBeforeOpen?: () => void;
-    onAfterOpen?: () => void;
-    onBeforeClose?: () => void;
-    onAfterClose?: () => void;
+import { Dialog, DialogProps } from "primereact/dialog";
+interface IModalProps extends DialogProps {
 };
-
-const ESC_KEY = 27;
 
 export const Modal: React.FC<IModalProps> = ({
     children,
-    openModal=false,
-    closeModal,
-    backGroundClose=false,
-    closeOnEsc=false,
+    header,
+    visible,
+    footer,
+    onHide,
     ...props
 }) => {
-    const handleBackGroundClick = (e: any) => {
-        e.preventDefault();
-        if ( (e.target.id !== "background_modal") || (backGroundClose === false) ) {
-            return
-        };
-        closeModal();
-    };
-
-    const handleKeyUp = useCallback((e: any): any => {
-        if (e.keyCode === ESC_KEY) {
-            closeModal();
-            return window.removeEventListener('keydown', handleKeyUp);
-        }
-        return;
-    }, [closeModal]);
-
-    useEffect(() => {
-        if (closeOnEsc && openModal === true) {
-            window.addEventListener('keydown', handleKeyUp);
-        }
-    }, [closeOnEsc, handleKeyUp, openModal]);
 
     return (
-        <>
-            {openModal === true ?
-                <>
-                    <ModalBackGround
-                        id="background_modal"
-                        onClick={handleBackGroundClick}
-                    >
-                        <Container>
-                            <ModalHeader>
-
-                                <ModalCloseButton 
-                                    onClick={closeModal}
-                                />
-                            </ModalHeader>
-                            {children}
-                            <ModalFooter />
-                        </Container>
-                    </ModalBackGround>
-                </>
-            : <></>
-            }
-        </>
+        <ModalBackGround
+            visible={visible}
+        >
+            <Dialog
+                header={header}
+                visible={visible}
+                footer={footer}
+                onHide={onHide}
+            >
+                {children}
+            </Dialog>
+        </ModalBackGround>
     );
 };

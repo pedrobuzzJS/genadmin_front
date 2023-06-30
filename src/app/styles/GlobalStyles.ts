@@ -77,4 +77,13 @@ export default createGlobalStyle`
         align-items: center;
         justify-content: center;
     }
+
+    .p-dialog {
+        min-width: 700px;
+        min-height: 500px;
+        
+        .p-dialog-header {
+            background: blue;
+        }
+    }
 `;
