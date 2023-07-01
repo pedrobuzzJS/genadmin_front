@@ -2,20 +2,23 @@ import React from "react";
 import { Container } from "./style";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { GridFields } from "../../utils/Fields";
+import { ColumnProps } from "primereact/column";
 import { Cols, GridSystem } from "../GridLayout/Grid/Grid";
 
-interface GridProps {
-    columns: GridFields[],
+export interface IGridProps {
+    columns: IColumnProps[],
     initialData: any,
-    loading?: boolean,
-    pathMantencao?: string;
     col?: Cols
 };
 
+export interface IColumnProps extends ColumnProps {
+    isKey?: boolean;
+    description?: string;
+}
+
 export type ColumnOrder = "asc" | "desc" | "sort";
 
-export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, pathMantencao, col,...props }) => {
+export const DataGrid: React.FC<IGridProps> = ({ columns, initialData, col,...props }) => {
     return (
         <GridSystem item cols={col}>
             <Container>
@@ -27,7 +30,7 @@ export const DataGrid: React.FC<GridProps> = ({ columns, initialData, loading, p
                     loading={false}
                 >
                     {columns.map((col, i) => (
-                        <Column key={col.field} field={col.field} header={col.title} />
+                        <Column key={i} field={col.field} header={col.header} />
                     ))}
                 </DataTable>
             </Container>

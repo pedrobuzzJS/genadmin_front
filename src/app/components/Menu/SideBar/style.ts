@@ -68,7 +68,7 @@ export const Content = styled.div<ShowMenuToggle>`
     }
 
     ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.3);
     }
 `;
 

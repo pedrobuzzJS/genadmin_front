@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { DataGrid } from "../../components/DataTable/DataTable";
+import { DataGrid, IColumnProps } from "../../components/DataTable/DataTable";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { useFetch } from "../../hooks/useFetch";
-import { FieldTypes, GridFields } from "../../utils/Fields";
 
 export const ExpenseTypeList: React.FC = () => {
     const { data } = useFetch("tipo-despesa");
-    const [ campos ] = useState<GridFields[]>(
+    const [ campos ] = useState<IColumnProps[]>(
         [
-            { key: true,field: "id",title: "ID",description: "id",type: FieldTypes.KEY },
-            { field: "name",title: "Nome",description: "Nome",type: FieldTypes.TEXT },
-            { field: "description",title: "Descrição",description: "Descrição",type: FieldTypes.TEXT },
-            { field: "buttons",title: "Acoes",description: "Acoes",type: FieldTypes.TEXT },
+            { isKey: true, field: "id", header: "ID",description: "id" },
+            { field: "name", header: "Nome",description: "Nome"  },
+            { field: "description", header: "Descrição",description: "Descrição"  },
+            { field: "buttons", header: "Acoes",description: "Acoes"  },
         ]
     );
 

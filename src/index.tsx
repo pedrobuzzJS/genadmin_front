@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './app/styles/GlobalStyles';
-// import "primereact/resources/themes/bootstrap4-light-blue/theme.css";  //theme
+import "primereact/resources/themes/bootstrap4-light-blue/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
 

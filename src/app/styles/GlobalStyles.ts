@@ -65,25 +65,46 @@ export default createGlobalStyle`
         --group-background-focus: #678EFE;
     }
 
-    .react-modal-overlay{
-        background: rgba(0, 0, 0, 0.5);
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ************* */
+    /* MODAL STYLES  */
+    /* ************* */
 
     .p-dialog {
-        min-width: 700px;
-        min-height: 500px;
+        min-width: 50%;
+        min-height: 50%;
+
+        width: 70%;
+        height: 70%;
+
+        max-width: 90%;
+        max-height: 90%;
         
         .p-dialog-header {
-            background: blue;
+            /* background: blue; */
+        }
+
+        .p-dialog-content {
+            ::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+            }
+
+            ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.3);
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+            }
+
+            ::-webkit-scrollbar-thumb:window-inactive {
+                background: rgba(255, 255, 255, 0.3);
+            }
         }
     }
 `;
