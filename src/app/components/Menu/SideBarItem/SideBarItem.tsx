@@ -43,7 +43,7 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                                         isSubMenuOpen={isOpen}
                                         onClick={openSubMenuList}
                                     >
-                                        <Icons iconName="FaCaretDown"/>
+                                        <Icons iconName="FaChevronDown" size={15} color="#fb0078"/>
                                     </ImgContainer>
                                 </>
                                 )
