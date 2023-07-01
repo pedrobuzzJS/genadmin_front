@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { DataGrid, IColumnProps } from "../../components/DataTable/DataTable";
+import { GenButton } from "../../components/Form/Button/GenButton";
 import { Modal } from "../../components/Modal/Modal";
-import { Button } from "../../components/Form/Button/Button";
 
 export const StatusList: React.FC = () => {
     const { data } = useFetch<any>("status");
@@ -17,6 +17,12 @@ export const StatusList: React.FC = () => {
         ]
     );
 
+    const FOOTER = (
+        <div>
+            <GenButton label="Fechar" onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
+        </div>
+    );
+
 	const [ showModal, setShowModal ] = useState<boolean>(false);
 
     return (
@@ -27,11 +33,11 @@ export const StatusList: React.FC = () => {
                 initialData={data}
                 col={12}
             />
-			<Button buttonDescription={"Abrir Modal"} onClick={() => setShowModal(true)}/>
+			<GenButton label="Abrir" onClick={() => setShowModal(!showModal)}/>
 			<Modal
 				header={"header"}
 				visible={showModal}
-				footer={"footer"}
+				footer={FOOTER}
 				onHide={() => setShowModal(!showModal)}
                 draggable={false}
                 resizable={false}

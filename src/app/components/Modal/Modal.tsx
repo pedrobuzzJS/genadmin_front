@@ -14,20 +14,16 @@ export const Modal: React.FC<IModalProps> = ({
     ...props
 }) => {
     return (
-        // <ModalBackGround
-            // visible={visible}
-        // >
-            <Dialog
-                header={header}
-                visible={visible}
-                footer={footer}
-                onHide={onHide}
-                {...props}
-            >
-                <GridSystem container justify="center">
-                    {children}
-                </GridSystem>
-            </Dialog>
-        // </ModalBackGround>
+        <Dialog
+            header={header}
+            visible={visible}
+            footer={footer}
+            onHide={onHide}
+            {...props}
+        >
+            <GridSystem container justify="center">
+                {children}
+            </GridSystem>
+        </Dialog>
     );
 };

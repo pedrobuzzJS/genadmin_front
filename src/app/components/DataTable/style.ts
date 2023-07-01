@@ -1,7 +1,4 @@
-import styled, { css } from "styled-components";
-import { FaPix } from "react-icons/fa6";
-import { ColumnOrder } from "./DataTable";
-
+import styled from "styled-components";
 interface TableRowProps {
     isOdd?: boolean
 }
