@@ -6,7 +6,7 @@ import { GenButton } from "../../components/Form/Button/GenButton";
 import { Modal } from "../../components/Modal/Modal";
 
 export const StatusList: React.FC = () => {
-    const { data } = useFetch<any>("status");
+    const { data, loading } = useFetch<any>("status");
     const [ campos ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID", description: "id"},
@@ -32,6 +32,8 @@ export const StatusList: React.FC = () => {
                 columns={campos}
                 initialData={data}
                 col={12}
+                loading={loading}
+
             />
 			<GenButton label="Abrir" onClick={() => setShowModal(!showModal)}/>
 			<Modal

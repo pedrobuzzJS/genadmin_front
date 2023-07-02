@@ -6,11 +6,11 @@ export function useFetch<T = unknown>(url: string, options?: AxiosRequestConfig 
     const [ data, setData ] = useState<T | null>();
     const [ statusCode, setStatus ] = useState<any>(null);
     const [ error, setError ] = useState<Error | null>(null);
-    const [ loadding, setLoadding ] = useState(false);
+    const [ loading, setloading ] = useState(false);
 
     const fetch = useCallback( async () => {
         await setError(null);
-        await setLoadding(true);
+        await setloading(true);
         await api(url, options)
         .then( response => {
             const { data, status } = response;
@@ -21,7 +21,7 @@ export function useFetch<T = unknown>(url: string, options?: AxiosRequestConfig 
             setError(erro);
         } )
         .finally( () => {
-            setLoadding(false);
+            setloading(false);
         })
     }, [options, url] );
 
@@ -33,6 +33,6 @@ export function useFetch<T = unknown>(url: string, options?: AxiosRequestConfig 
         data,
         statusCode,
         error,
-        loadding,
+        loading,
     };
 };

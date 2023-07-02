@@ -14,7 +14,7 @@ import { FaPix } from "react-icons/fa6";
 import { Icons } from "../../../helpers/Icons";
 
 export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
-    const { data, loadding } = useFetch<LinkMenu[]>("menu");
+    const { data, loading } = useFetch<LinkMenu[]>("menu");
     const [ isSideBarOpen, setIsSideBarOpen ] = useState<boolean>(false);
     const [ superOpenSideBar, setSuperOpenSideBar ] = useState<boolean>(false);
 

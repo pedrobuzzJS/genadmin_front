@@ -4,7 +4,7 @@ import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { useFetch } from "../../hooks/useFetch";
 
 export const ExpenseTypeList: React.FC = () => {
-    const { data } = useFetch("tipo-despesa");
+    const { data, loading } = useFetch("tipo-despesa");
     const [ campos ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID",description: "id" },
@@ -21,6 +21,7 @@ export const ExpenseTypeList: React.FC = () => {
                   columns={campos}
                   initialData={data}
                   col={12}
+                  loading={loading}
               />
             </GridSystem>
         </>

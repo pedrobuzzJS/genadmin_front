@@ -8,7 +8,8 @@ import { Cols, GridSystem } from "../GridLayout/Grid/Grid";
 export interface IGridProps {
     columns: IColumnProps[],
     initialData: any,
-    col?: Cols
+    col?: Cols,
+    loading?: boolean
 };
 
 export interface IColumnProps extends ColumnProps {
@@ -18,7 +19,7 @@ export interface IColumnProps extends ColumnProps {
 
 export type ColumnOrder = "asc" | "desc" | "sort";
 
-export const DataGrid: React.FC<IGridProps> = ({ columns, initialData, col, ...props }) => {
+export const DataGrid: React.FC<IGridProps> = ({ columns, initialData, col, loading, ...props }) => {
     return (
         <GridSystem item cols={col}>
             <Container>
@@ -27,7 +28,7 @@ export const DataGrid: React.FC<IGridProps> = ({ columns, initialData, col, ...p
                     className="dataTable"
                     size="small"
                     scrollable
-                    loading={false}
+                    loading={loading}
                     {...props}
                 >
                     {columns.map((col, i) => (
