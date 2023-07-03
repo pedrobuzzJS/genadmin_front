@@ -4,6 +4,7 @@ import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { DataGrid, IColumnProps } from "../../components/DataTable/DataTable";
 import { GenButton } from "../../components/Form/Button/GenButton";
 import { Modal } from "../../components/Modal/Modal";
+import { StatusForm } from "../FormPages/StatusForm";
 
 export const StatusList: React.FC = () => {
     const { data, loading } = useFetch<any>("status");
@@ -51,11 +52,7 @@ export const StatusList: React.FC = () => {
 				footer={FOOTER}
 				onHide={() => setShowModal(!showModal)}
 			>
-				<DataGrid
-                    columns={campos}
-                    initialData={data}
-                    col={12}
-                />
+				<StatusForm />
 			</Modal>
         </>
     );
