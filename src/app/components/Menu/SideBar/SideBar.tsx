@@ -6,15 +6,14 @@ import { SideBarItem } from "../SideBarItem/SideBarItem";
 import {    SideBar,
             Content,
             TopMenu,
-            ExitSection,
             HambugerMenu,
-            SideBarItemList
+            SideBarItemList,
+            MenuButton
 } from "./style";
-import { FaPix } from "react-icons/fa6";
 import { Icons } from "../../../helpers/Icons";
 
 export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
-    const { data, loading } = useFetch<LinkMenu[]>("menu");
+    const { data } = useFetch<LinkMenu[]>("menu");
     const [ isSideBarOpen, setIsSideBarOpen ] = useState<boolean>(false);
     const [ superOpenSideBar, setSuperOpenSideBar ] = useState<boolean>(false);
 
@@ -83,12 +82,16 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
                 </SideBarItemList>
             </SideBar>
             <TopMenu>
-                <HambugerMenu>
-                    <Icons
-                        iconName={"FaBars"}
-                        onClick={toggleSideBar}
-                        size={35}
-                    />
+                <HambugerMenu
+                    onClick={toggleSideBar}
+                    disabled={isSideBarOpen}
+                >
+                    <MenuButton>
+                        <Icons
+                            iconName={"FaBars"}
+                            size={30}
+                        />
+                    </MenuButton>
                 </HambugerMenu>
             </TopMenu>
             <Content

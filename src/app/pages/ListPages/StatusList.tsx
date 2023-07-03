@@ -18,25 +18,33 @@ export const StatusList: React.FC = () => {
     );
 
     const FOOTER = (
-        <div>
-            <GenButton label="Fechar" onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
-        </div>
+        <>
+            <GridSystem container justify="end">
+                <GenButton label="Fechar" col={6} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-info"/>
+                <GenButton label="Fechar" col={6} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
+                <GenButton label="Fechar" col={12} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
+            </GridSystem>
+        </>
     );
 
-	const [ showModal, setShowModal ] = useState<boolean>(false);
+	const [ showModal, setShowModal ] = useState<boolean>(true);
 
     return (
         <>
-          <GridSystem container justify="center">
-            <DataGrid
-                columns={campos}
-                initialData={data}
-                col={12}
-                loading={loading}
-
-            />
-			<GenButton label="Abrir" onClick={() => setShowModal(!showModal)}/>
-			<Modal
+            <GridSystem container justify="center">
+                <DataGrid
+                    columns={campos}
+                    initialData={data}
+                    col={12}
+                    loading={loading}
+                />
+                <GridSystem container justify="center">
+                    <GenButton label="Abrir" col={12} padding={5} onClick={() => setShowModal(!showModal)}/>
+                    <GenButton label="Abrir" col={1} padding={5} onClick={() => setShowModal(!showModal)}/>
+                    <GenButton label="Abrir" col={1} padding={5} onClick={() => setShowModal(!showModal)}/>
+                </GridSystem>
+            </GridSystem>
+            <Modal
 				header={"header"}
 				visible={showModal}
 				footer={FOOTER}
@@ -50,7 +58,6 @@ export const StatusList: React.FC = () => {
                     col={12}
                 />
 			</Modal>
-          </GridSystem>
         </>
     );
 };

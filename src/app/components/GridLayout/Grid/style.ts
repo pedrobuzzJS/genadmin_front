@@ -12,10 +12,7 @@ export const StyledGrid = styled.div<IGridSystem>`
 
     ${props => props?.item === true && css`
         display: block;
-        height: 100%;
-    `}
-
-    ${props => props?.item === true && css`
-        flex-basis: calc((${props.cols}/12)*100%);
+        width: calc((${props.cols}/12)*100%);
+        padding: calc(${props?.gap ?? 0}px/2);
     `}
 `;
