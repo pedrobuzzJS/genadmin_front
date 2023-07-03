@@ -1,6 +1,5 @@
 import React from "react";
-import { Container } from "./style";
-import { DataTable, DataTableProps } from "primereact/datatable";
+import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { ColumnProps } from "primereact/column";
 import { Cols, GridSystem } from "../GridLayout/Grid/Grid";
@@ -10,6 +9,7 @@ export interface IGridProps {
     initialData: any,
     col?: Cols,
     loading?: boolean
+    stripedRows?: boolean
 };
 
 export interface IColumnProps extends ColumnProps {
@@ -19,23 +19,37 @@ export interface IColumnProps extends ColumnProps {
 
 export type ColumnOrder = "asc" | "desc" | "sort";
 
-export const DataGrid: React.FC<IGridProps> = ({ columns, initialData, col, loading, ...props }) => {
+export const DataGrid: React.FC<IGridProps> = ({ 
+        columns,
+        initialData,
+        col,
+        loading,
+        stripedRows=true,
+        ...props }) => {
     return (
         <GridSystem item cols={col}>
-            <Container>
+            {/* <Container> */}
                 <DataTable
                     value={initialData}
                     className="dataTable"
                     size="small"
-                    scrollable
                     loading={loading}
+                    stripedRows={stripedRows}
+                    removableSort={true}
+                    // sortField="id"
+                    // sortOrder={0}
                     {...props}
                 >
                     {columns.map((col, i) => (
-                        <Column key={i} field={col.field} header={col.header} />
+                        <Column
+                            key={i}
+                            field={col.field}
+                            header={col.header}
+                            {...col}
+                        />
                     ))}
                 </DataTable>
-            </Container>
+            {/* </Container> */}
         </GridSystem>
     )
 };

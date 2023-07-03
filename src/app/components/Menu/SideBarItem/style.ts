@@ -6,7 +6,6 @@ interface Toggle {
 };
 
 export const Container = styled.div<Toggle>`
-    /* background: blueviolet; */
     > div {
         transition: all 0.2s;
         margin-top: ${({ isSubMenuOpen }) => (isSubMenuOpen && isSubMenuOpen === true ? '' : '-40px')};
@@ -64,8 +63,6 @@ export const ImgContainer = styled.div<Toggle>`
 
     > svg {
         transition: 350ms;
-        /* width: 35px; */
-        /* height: 35px; */
         transform: ${({ isSubMenuOpen }) => (isSubMenuOpen && isSubMenuOpen === true ? css`rotate(90deg)` : '')};
 
         &:hover {

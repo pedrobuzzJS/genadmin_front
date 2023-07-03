@@ -13,7 +13,6 @@ export const ExpenseTypeForm: React.FC = () => {
             id: "id",
             label: "Código",
             placeholder: "Código",
-            type: InputType.NUMBER,
             cols: 4,
             disabled: true,
         },
@@ -22,7 +21,6 @@ export const ExpenseTypeForm: React.FC = () => {
             id: "name",
             label: "Nome",
             placeholder: "Nome",
-            type: InputType.TEXT,
             cols: 4,
         },
         {
@@ -30,7 +28,6 @@ export const ExpenseTypeForm: React.FC = () => {
             id: "description",
             label: "Descrição",
             placeholder: "Descrição",
-            type: InputType.TEXT,
             cols: 4,
         },
     ]);
@@ -51,14 +48,7 @@ export const ExpenseTypeForm: React.FC = () => {
                     item
                     cols={12}
                 >
-                    <Form
-                        campos={inputs}
-                        urlBack="tipo-despesa"
-                        initialData={data}
-                        op={Number(op)}
-                        justify="start"
-                        direction="row"
-                    />
+                    
                 </GridSystem>
             </GridSystem>
         </>

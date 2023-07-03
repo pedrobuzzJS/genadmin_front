@@ -13,7 +13,6 @@ export const MenuForm: React.FC = () => {
             id: "id",
             label: "Código",
             placeholder: "Código",
-            type: InputType.NUMBER,
             cols: 4,
             disabled: true,
         },
@@ -22,7 +21,6 @@ export const MenuForm: React.FC = () => {
             id: "name",
             label: "Nome",
             placeholder: "Nome",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -30,7 +28,6 @@ export const MenuForm: React.FC = () => {
             id: "parameters",
             label: "Parametros",
             placeholder: "Parametros",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -38,7 +35,6 @@ export const MenuForm: React.FC = () => {
             id: "route",
             label: "Rotas",
             placeholder: "Rotas",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -46,7 +42,6 @@ export const MenuForm: React.FC = () => {
             id: "icon",
             label: "Icone",
             placeholder: "Icone",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -54,7 +49,6 @@ export const MenuForm: React.FC = () => {
             id: "parent_id",
             label: "Link Pai",
             placeholder: "Link Pai",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -62,7 +56,6 @@ export const MenuForm: React.FC = () => {
             id: "component",
             label: "Componente",
             placeholder: "Componente",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -70,7 +63,6 @@ export const MenuForm: React.FC = () => {
             id: "has_childrens",
             label: "Possui Filhos",
             placeholder: "Possui Filhos",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -78,7 +70,6 @@ export const MenuForm: React.FC = () => {
             id: "order",
             label: "Ordem",
             placeholder: "Ordem",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -86,7 +77,6 @@ export const MenuForm: React.FC = () => {
             id: "disabled",
             label: "Desabilitado",
             placeholder: "Desabilitado",
-            type: InputType.TEXT,
             cols: 4
         },
         {
@@ -94,7 +84,6 @@ export const MenuForm: React.FC = () => {
             id: "status_id",
             label: "Status",
             placeholder: "Status",
-            type: InputType.SELECT,
             cols: 4,
             options: [
                 {
@@ -112,7 +101,6 @@ export const MenuForm: React.FC = () => {
             id: "created_at",
             label: "Criado em",
             placeholder: "Criado em",
-            type: InputType.DATE,
             cols: 4
         },
         {
@@ -120,7 +108,6 @@ export const MenuForm: React.FC = () => {
             id: "updated_at",
             label: "Alterado em",
             placeholder: "Alterado em",
-            type: InputType.DATE,
             cols: 4
         },
     ]);
@@ -141,13 +128,7 @@ export const MenuForm: React.FC = () => {
                     item
                     cols={12}
                 >
-                    <Form
-                        campos={inputs}
-                        urlBack="menu"
-                        initialData={data}
-                        op={Number(op)}
-                        justify="start"
-                    />
+                   
                 </GridSystem>
             </GridSystem>
         </>

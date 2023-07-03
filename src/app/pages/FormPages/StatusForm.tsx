@@ -1,71 +1,35 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import { Form } from "../../components/Form/Form";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
-import { useFetch } from "../../hooks/useFetch";
-import { FormInputs, InputType } from "../../utils/FormFields";
+import { FormInputs } from "../../utils/FormFields";
+import { InputDefault } from "../../components/Form/Inputs/InputDefault/InputDefault";
 
 export const StatusForm: React.FC = () => {
     const [ inputs ] = useState<FormInputs[]>([
-        {
-            key: true,
-            name: "id",
-            id: "id",
-            label: "Código",
-            placeholder: "Código",
-            type: InputType.NUMBER,
-            cols: 2,
-            disabled: true,
-        },
-        {
-            name: "name",
-            id: "name",
-            label: "Nome",
-            placeholder: "Nome",
-            type: InputType.TEXT,
-            cols: 2,
-        },
-        {
-            name: "description",
-            id: "description",
-            label: "Descrição",
-            placeholder: "Descrição",
-            type: InputType.TEXT,
-            cols: 2,
-        },
-        {
-            name: "color",
-            id: "color",
-            label: "Cor",
-            placeholder: "Cor",
-            type: InputType.TEXT,
-            cols: 2,
-        },
+        {key: true,name: "id",id: "id",label: "Código",placeholder: "Código",cols: 2, disabled: true,},
+        {name: "name",id: "name",label: "Nome",placeholder: "Nome",cols: 2,},
+        {name: "description",id: "description",label: "Descrição",placeholder: "Descrição",cols: 2,},
+        {name: "color",id: "color",label: "Cor",placeholder: "Cor",cols: 2,},
     ]);
-    const { op, id } = useParams();
-    const { data } = useFetch<any>("status", {
-        params: {
-            id: id
-        }
-    });
 
     return (
         <>
             <GridSystem
                 container
-                justify="center"
+                justify="start"
             >
                 <GridSystem
                     item
                     cols={12}
                 >
-                    <Form
-                        campos={inputs}
-                        urlBack="menu"
-                        initialData={data}
-                        op={Number(op)}
-                        justify="start"
-                    />
+                    <Form>
+                        <InputDefault
+                            name={"name"}
+                            id={"id"}
+                            label={"labe"}
+                            placeholder={"Input"}
+                        />
+                    </Form>
                 </GridSystem>
             </GridSystem>
         </>

@@ -27,11 +27,22 @@ export const SideBarItemList = styled.div`
     }
 `;
 
-export const HambugerMenu = styled.div`
+export const HambugerMenu = styled.div<ShowMenuToggle>`
     height: 50px;
-    width: 50px;
+    width: ${({ disabled }) => (disabled && disabled === true ? '250px' : '50px')};
     color: #fff;
+    background: #463f64;
     cursor: pointer;
+    transition: all 0.4s;
+`;
+
+export const MenuButton = styled.div`
+    width: 100%;
+    height: 50px;
+    max-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const Content = styled.div<ShowMenuToggle>`
@@ -40,6 +51,7 @@ export const Content = styled.div<ShowMenuToggle>`
     padding-top: 70px;
     padding-right: 10px;
     padding-left: ${({ disabled }) => (disabled && disabled === true ? '60px' : '60px')};
+    /* background: #ffffff; */
 
     ${props => props?.superOpenSideBar === true && css`
         padding-left: 260px;
@@ -69,16 +81,6 @@ export const Content = styled.div<ShowMenuToggle>`
 
     ::-webkit-scrollbar-thumb:window-inactive {
         background: rgba(255, 255, 255, 0.3);
-    }
-`;
-
-export const MenuIconDiv = styled.div`
-    width: 100%;
-    padding: 10px;
-    > svg {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
     }
 `;
 
@@ -112,20 +114,20 @@ export const TopMenu = styled.div`
     }
 `;
 
-export const ExitSection = styled.div<ShowMenuToggle>`
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    bottom: 0;
-    height: 35px;
-    width: ${({ disabled }) => (disabled && disabled === true ? '250px' : '50px')};
-    background: black;
-    color: white;
-    transition: all 0.4s;
+// export const ExitSection = styled.div<ShowMenuToggle>`
+//     position: fixed;
+//     display: flex;
+//     justify-content: center;
+//     bottom: 0;
+//     height: 35px;
+//     width: ${({ disabled }) => (disabled && disabled === true ? '250px' : '50px')};
+//     background: black;
+//     color: white;
+//     transition: all 0.4s;
 
-    > svg {
-        display: block;
-        padding: 5px;
-        cursor: pointer;
-    }
-`;
+//     > svg {
+//         display: block;
+//         padding: 5px;
+//         cursor: pointer;
+//     }
+// `;

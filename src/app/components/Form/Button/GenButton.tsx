@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, ButtonProps } from 'primereact/button';
+import { Cols, GridSystem } from "../../GridLayout/Grid/Grid";
 
-type ButtonTypes = 'p-button-secondary' | 'p-button-success' | 'p-button-info' | 'p-button-warning' | 'p-button-help' | 'p-button-danger';
+// type ButtonTypes = 'p-button-secondary' | 'p-button-success' | 'p-button-info' | 'p-button-warning' | 'p-button-help' | 'p-button-danger';
 interface IButtonProps extends ButtonProps {
-    className?: ButtonTypes;
+    className?: string;
+    col?: Cols
+    padding?: number
 };
 
 export const GenButton: React.FC<IButtonProps> = ({
     label,
     className,
+    col=1,
+    children,
+    padding,
     ...props
 }) => {
-    // const buttonRef = useRef(null);
+    const buttonRef = useRef(null);
 
     return (
-        <Button
-            label={label}
-            loading={false}
-            className={className}
-            {...props}
-        />
+        <GridSystem
+            item
+            cols={col}
+            gap={padding}
+        >
+            <Button
+                ref={buttonRef}
+                label={label}
+                loading={false}
+                className={className}
+                children={children}
+                style={
+                    {
+                        width: "100%",
+                        height: "100%",
+                        maxHeight: "30px",
+                        whiteSpace: 'nowrap'
+                    }
+                }
+                {...props}
+            />
+        </GridSystem>
     );
 };
