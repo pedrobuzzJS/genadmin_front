@@ -9,7 +9,7 @@ import { Icons } from "../../helpers/Icons";
 
 export const StatusList: React.FC = () => {
     const { data, loading } = useFetch<any>("status");
-    const [ showModal, setShowModal ] = useState<boolean>(true);
+    const [ showModal, setShowModal ] = useState<boolean>(false);
     const [ campos ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID", description: "id"},
@@ -43,7 +43,7 @@ export const StatusList: React.FC = () => {
                     col={12}
                     loading={loading}
                 />
-            </GridSystem>FaCirclePlus
+            </GridSystem>
             <Modal
 				header={"header"}
 				visible={showModal}

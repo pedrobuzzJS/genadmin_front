@@ -6,7 +6,7 @@ import { InputDefault } from "../../components/Form/Inputs/InputDefault/InputDef
 
 export const StatusForm: React.FC = () => {
     const [ inputs ] = useState<FormInputs[]>([
-        {key: true,name: "id",id: "id",label: "Código",placeholder: "Código",cols: 2,disabled: true,},
+        {key: true,name: "id",id: "id",label: "Código",placeholder: "Código",cols: 2, disabled: true,},
         {name: "name",id: "name",label: "Nome",placeholder: "Nome",cols: 2,},
         {name: "description",id: "description",label: "Descrição",placeholder: "Descrição",cols: 2,},
         {name: "color",id: "color",label: "Cor",placeholder: "Cor",cols: 2,},
