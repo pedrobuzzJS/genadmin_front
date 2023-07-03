@@ -5,9 +5,11 @@ import { DataGrid, IColumnProps } from "../../components/DataTable/DataTable";
 import { GenButton } from "../../components/Form/Button/GenButton";
 import { Modal } from "../../components/Modal/Modal";
 import { StatusForm } from "../FormPages/StatusForm";
+import { Icons } from "../../helpers/Icons";
 
 export const StatusList: React.FC = () => {
     const { data, loading } = useFetch<any>("status");
+    const [ showModal, setShowModal ] = useState<boolean>(true);
     const [ campos ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID", description: "id"},
@@ -20,7 +22,7 @@ export const StatusList: React.FC = () => {
 
     const FOOTER = (
         <>
-            <GridSystem container justify="end" height={40} alignItems padding={25}>
+            <GridSystem container justify="end" height={40} alignItems gap={5} padding={15}>
                 <GenButton label="Gravar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
                 <GenButton label="Continuar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
                 <GenButton label="Fechar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
@@ -29,23 +31,21 @@ export const StatusList: React.FC = () => {
 
     );
 
-	const [ showModal, setShowModal ] = useState<boolean>(true);
-
     return (
         <>
             <GridSystem container justify="center">
+                <GridSystem container justify="start" height={40} gap={5}>
+                    <GenButton label="Inserir"  col={1} onClick={() => setShowModal(!showModal)} className="p-button-success">
+                        <Icons iconName={"FaCirclePlus"} />
+                    </GenButton>
+                </GridSystem>
                 <DataGrid
                     columns={campos}
                     initialData={data}
                     col={12}
                     loading={loading}
                 />
-                <GridSystem container justify="center">
-                    <GenButton label="Abrir" col={12} padding={5} onClick={() => setShowModal(!showModal)}/>
-                    <GenButton label="Abrir" col={1} padding={5} onClick={() => setShowModal(!showModal)}/>
-                    <GenButton label="Abrir" col={1} padding={5} onClick={() => setShowModal(!showModal)}/>
-                </GridSystem>
-            </GridSystem>
+            </GridSystem>FaCirclePlus
             <Modal
 				header={"header"}
 				visible={showModal}

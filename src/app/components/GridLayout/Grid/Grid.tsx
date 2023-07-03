@@ -17,7 +17,7 @@ export interface IGridSystem extends PropsWithChildren {
     direction?: Direction;
     gap?: number,
     alignItems?: boolean,
-    padding?: number
+    padding?: number;
 }
 
 export const GridSystem: React.FC<IGridSystem> = ({

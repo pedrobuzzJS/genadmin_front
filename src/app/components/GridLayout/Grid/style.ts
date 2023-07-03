@@ -3,6 +3,8 @@ import { IGridSystem } from "./Grid";
 
 export const StyledGrid = styled.div<IGridSystem>`
     ${props => props?.container === true && css`
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-wrap: wrap;
         flex-direction: ${props?.direction};
@@ -10,6 +12,7 @@ export const StyledGrid = styled.div<IGridSystem>`
         justify-content: ${props?.justify};
         padding-left: ${props.padding ?? 0}px;
         padding-right: ${props.padding ?? 0}px;
+        gap: ${props.gap ?? 0}px;
     `}
 
     ${props => props?.container === true && props.alignItems && css`
@@ -22,7 +25,7 @@ export const StyledGrid = styled.div<IGridSystem>`
 
     ${props => props?.item === true && css`
         display: block;
-        width: calc((${props.cols}/12)*100%);
-        padding: calc(${props?.gap ?? 0}px/2);
+        flex-basis: calc( calc((${props.cols}/12)*100%));
+        /* padding: calc(${props?.gap ?? 0}px/2); */
     `}
 `;

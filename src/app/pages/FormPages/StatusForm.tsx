@@ -22,7 +22,7 @@ export const StatusForm: React.FC = () => {
             id: "name",
             label: "Nome",
             placeholder: "Nome",
-            type: InputType.TEXT,
+            type: InputType.CPF,
             cols: 2,
         },
         {

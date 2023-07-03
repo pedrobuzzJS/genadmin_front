@@ -3,9 +3,7 @@ import { InputContainerWrapper, InputDiv, StyledError } from "./style";
 import Masks from "../Masks/Masks";
 import { InputText } from 'primereact/inputtext';
 import { useForm } from "../../../../context/formContext";
-import { Chips } from 'primereact/chips';
 import { InputMask } from 'primereact/inputmask';
-import { Editor } from 'primereact/editor';
 
 export type FormInputTypes = "text" | "email" | "password" | "button" | "color" | "file" | "cpf"
                         | "currency" | "cep" | "date" | "number";
@@ -51,13 +49,13 @@ export const InputDefault: React.FC<InputProps> = ({
             const mask = new Masks();
             switch (type) {
                 case "cep":
-                    mask.cep(e);
+                    // mask.cep(e);
                     return setInputValue(e.currentTarget.value);
                 break;
                 case "currency":
                 break;
                 case "cpf":
-                    mask.cpf(e);
+                    // mask.cpf(e);
                     return setInputValue(e.currentTarget.value);
                 break;
                 case "email":
@@ -79,20 +77,11 @@ export const InputDefault: React.FC<InputProps> = ({
             >
                 <label htmlFor={id}>
                     <span>
-                        {label}
+                        {label}s
                     </span>
                 </label>
                 <InputDiv>
-                    <InputText
-                        ref={inputRef}
-                        type={type}
-                        name={name}
-                        id={id}
-                        onChange={handleOnChange}
-                        placeholder={placeholder}
-                        value={inputValue}
-                        {...props}
-                    />
+                    <InputMask mask="99f999-999" placeholder="99999-999" />
                 </InputDiv>
                 { error && 
                     <StyledError>

@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import { Button, ButtonProps } from 'primereact/button';
 import { Cols, GridSystem } from "../../GridLayout/Grid/Grid";
 
-type ButtonTypes = 'p-button-secondary' | 'p-button-success' | 'p-button-info' | 'p-button-warning' | 'p-button-help' | 'p-button-danger';
+// type ButtonTypes = 'p-button-secondary' | 'p-button-success' | 'p-button-info' | 'p-button-warning' | 'p-button-help' | 'p-button-danger';
 interface IButtonProps extends ButtonProps {
-    className?: ButtonTypes;
+    className?: string;
     col?: Cols
     padding?: number
 };
