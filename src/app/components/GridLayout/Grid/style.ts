@@ -8,6 +8,16 @@ export const StyledGrid = styled.div<IGridSystem>`
         flex-direction: ${props?.direction};
         width: 100%;
         justify-content: ${props?.justify};
+        padding-left: ${props.padding ?? 0}px;
+        padding-right: ${props.padding ?? 0}px;
+    `}
+
+    ${props => props?.container === true && props.alignItems && css`
+        align-items: center;
+    `}
+
+    ${props => props.height && css`
+        height: ${props.height}px;
     `}
 
     ${props => props?.item === true && css`

@@ -15,7 +15,9 @@ export interface IGridSystem extends PropsWithChildren {
     height?: number;
     justify?: Justify;
     direction?: Direction;
-    gap?: number
+    gap?: number,
+    alignItems?: boolean,
+    padding?: number
 }
 
 export const GridSystem: React.FC<IGridSystem> = ({
@@ -28,6 +30,7 @@ export const GridSystem: React.FC<IGridSystem> = ({
     children,
     justify,
     gap,
+    alignItems=false,
     ...props
 }) => {
     return (
@@ -38,6 +41,8 @@ export const GridSystem: React.FC<IGridSystem> = ({
             justify={justify}
             direction={direction}
             gap={gap}
+            height={height}
+            alignItems={alignItems}
             {...props}
         >
             {children}

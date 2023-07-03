@@ -51,6 +51,7 @@ export const Content = styled.div<ShowMenuToggle>`
     padding-top: 70px;
     padding-right: 10px;
     padding-left: ${({ disabled }) => (disabled && disabled === true ? '60px' : '60px')};
+    /* background: #ffffff; */
 
     ${props => props?.superOpenSideBar === true && css`
         padding-left: 260px;

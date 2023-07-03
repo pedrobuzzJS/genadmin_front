@@ -73,14 +73,22 @@ export default createGlobalStyle`
         min-width: 50%;
         min-height: 50%;
 
-        width: 70%;
-        height: 70%;
+        width: 75%;
+        height: 75%;
 
         max-width: 90%;
         max-height: 90%;
         
         .p-dialog-header {
-            /* background: blue; */
+            /* height: 50px; */
+            background: #e2e2e2;
+        }
+
+        .p-dialog-footer {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #e2e2e2;
         }
 
         .p-dialog-content {

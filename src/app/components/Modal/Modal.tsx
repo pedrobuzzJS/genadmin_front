@@ -11,6 +11,8 @@ export const Modal: React.FC<IModalProps> = ({
     visible,
     footer,
     onHide,
+    draggable=false,
+    resizable=false,
     ...props
 }) => {
     return (
@@ -19,6 +21,8 @@ export const Modal: React.FC<IModalProps> = ({
             visible={visible}
             footer={footer}
             onHide={onHide}
+            draggable={draggable}
+            resizable={resizable}
             {...props}
         >
             <GridSystem container justify="center">

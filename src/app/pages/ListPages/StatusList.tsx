@@ -19,12 +19,13 @@ export const StatusList: React.FC = () => {
 
     const FOOTER = (
         <>
-            <GridSystem container justify="end">
-                <GenButton label="Fechar" col={6} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-info"/>
-                <GenButton label="Fechar" col={6} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
-                <GenButton label="Fechar" col={12} padding={5} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
+            <GridSystem container justify="end" height={40} alignItems padding={25}>
+                <GenButton label="Gravar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
+                <GenButton label="Continuar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
+                <GenButton label="Fechar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
             </GridSystem>
         </>
+
     );
 
 	const [ showModal, setShowModal ] = useState<boolean>(true);
@@ -49,8 +50,6 @@ export const StatusList: React.FC = () => {
 				visible={showModal}
 				footer={FOOTER}
 				onHide={() => setShowModal(!showModal)}
-                draggable={false}
-                resizable={false}
 			>
 				<DataGrid
                     columns={campos}
