@@ -1,19 +1,12 @@
-import React, { InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
-import { InputContainerWrapper, InputDiv, StyledError } from "./style";
-import Masks from "../Masks/Masks";
-import { InputText } from 'primereact/inputtext';
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { InputText, InputTextProps } from 'primereact/inputtext';
 import { useForm } from "../../../../context/formContext";
-import { InputMask } from 'primereact/inputmask';
-
-export type FormInputTypes = "text" | "email" | "password" | "button" | "color" | "file" | "cpf"
-                        | "currency" | "cep" | "date" | "number";
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+import { GenButton } from "../../Button/GenButton";
+interface InputProps extends InputTextProps {
     name?: string;
     id?: string;
     label?: string;
     placeholder?: string;
-    type?: FormInputTypes;
     initialData?: {};
 };
 
@@ -27,14 +20,21 @@ export const InputDefault: React.FC<InputProps> = ({
     ...props
 }) => {
     var dot = require('dot-object');
-    const [ error ] = useState<string | null>(null);
-    const inputRef = useRef<HTMLInputElement>(null);
-    const [ inputValue, setInputValue ] = useState<any>();
+    const [ inputValue, setInputValue ] = useState<any>('asd');
 
     const { setFormField } = useForm();
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    const changeValue = () => {
+        console.log('inputRef.name', inputRef.current?.name)
+        console.log('inputRef.value', inputRef.current?.value)
+        console.log('inputValue', inputValue)
+    }
+
     useEffect( () => {
-        setInputValue(dot.pick(name, initialData));
+        // inputRef.current?.value = "porra"
+        // setInputValue(dot.pick(name, initialData));
     }, [dot, initialData, name])
 
     useEffect(() => {
@@ -46,49 +46,23 @@ export const InputDefault: React.FC<InputProps> = ({
 
     const handleOnChange = useCallback(
         (e: React.FormEvent<HTMLInputElement>) => {
-            const mask = new Masks();
-            switch (type) {
-                case "cep":
-                    // mask.cep(e);
-                    return setInputValue(e.currentTarget.value);
-                break;
-                case "currency":
-                break;
-                case "cpf":
-                    // mask.cpf(e);
-                    return setInputValue(e.currentTarget.value);
-                break;
-                case "email":
-                break;
-                case "text":
-                    return setInputValue(e.currentTarget.value);
-                break;
-                default:
-                break;
-            };
+            return setInputValue(e.currentTarget.value);
         }, 
-        [type]
+        []
     );
 
     return (
         <>
-            <InputContainerWrapper
-                error={Boolean(error)}
-            >
-                <label htmlFor={id}>
-                    <span>
-                        {label}s
-                    </span>
-                </label>
-                <InputDiv>
-                    <InputMask mask="99f999-999" placeholder="99999-999" />
-                </InputDiv>
-                { error && 
-                    <StyledError>
-                        {error}
-                    </StyledError>
-                }
-            </InputContainerWrapper>
+            <InputText
+                ref={inputRef}
+                name={name}
+                id={id}
+                onChange={handleOnChange}
+                placeholder={placeholder}
+                value={inputValue}
+                {...props}
+            />
+            <GenButton label="Gravar" col={1} onClick={() => changeValue()} className="p-button-success"/>
         </>
     );
 };

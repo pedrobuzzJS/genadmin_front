@@ -23,9 +23,9 @@ export const StatusList: React.FC = () => {
     const FOOTER = (
         <>
             <GridSystem container justify="end" height={40} alignItems gap={5} padding={15}>
-                <GenButton label="Gravar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
-                <GenButton label="Continuar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-success"/>
-                <GenButton label="Fechar" col={1} onClick={() => setShowModal(!showModal)} className="p-button-danger"/>
+                <GenButton label="Gravar" col={1} onClick={() => setShowModal(true)} className="p-button-success"/>
+                <GenButton label="Continuar" col={1} onClick={() => setShowModal(true)} className="p-button-success"/>
+                <GenButton label="Fechar" col={1} onClick={() => setShowModal(true)} className="p-button-danger"/>
             </GridSystem>
         </>
 
@@ -35,9 +35,7 @@ export const StatusList: React.FC = () => {
         <>
             <GridSystem container justify="center">
                 <GridSystem container justify="start" height={40} gap={5}>
-                    <GenButton label="Inserir"  col={1} onClick={() => setShowModal(!showModal)} className="p-button-success">
-                        <Icons iconName={"FaCirclePlus"} />
-                    </GenButton>
+                    <GenButton label="Inserir"  col={1} onClick={() => setShowModal(!showModal)} className="p-button-success" children={<Icons iconName={"FaCirclePlus"} />} />
                 </GridSystem>
                 <DataGrid
                     columns={campos}

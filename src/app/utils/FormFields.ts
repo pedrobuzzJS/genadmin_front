@@ -1,4 +1,3 @@
-import { FormInputTypes } from "../components/Form/Inputs/InputDefault/InputDefault";
 import { Cols } from "../components/GridLayout/Grid/Grid";
 import { SelectList } from "./SelectList";
 
@@ -9,7 +8,6 @@ export interface FormInputs {
     isChave?: boolean;
     label?: string;
     required?: boolean;
-    type?: FormInputTypes | string | any;
     placeholder?: string;
     options?: SelectList[] | any;
     disabled?: boolean;

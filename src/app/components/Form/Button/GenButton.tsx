@@ -30,6 +30,7 @@ export const GenButton: React.FC<IButtonProps> = ({
                 label={label}
                 loading={false}
                 className={className}
+                children={children}
                 style={
                     {
                         width: "100%",
@@ -39,9 +40,7 @@ export const GenButton: React.FC<IButtonProps> = ({
                     }
                 }
                 {...props}
-            >
-                {children}
-            </Button>
+            />
         </GridSystem>
     );
 };

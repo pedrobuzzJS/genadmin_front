@@ -26,6 +26,5 @@ export const StyledGrid = styled.div<IGridSystem>`
     ${props => props?.item === true && css`
         display: block;
         flex-basis: calc( calc((${props.cols}/12)*100%));
-        /* padding: calc(${props?.gap ?? 0}px/2); */
     `}
 `;
