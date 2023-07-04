@@ -1,37 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "../../components/Form/Form";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
-import { FormInputs } from "../../utils/FormFields";
 import { InputDefault } from "../../components/Form/Inputs/InputDefault/InputDefault";
+import { useForm } from "../../context/formContext";
+import { GenButton } from "../../components/Form/Button/GenButton";
+import { Modal } from "../../components/Modal/Modal";
 
-export const StatusForm: React.FC = () => {
-    const [ inputs ] = useState<FormInputs[]>([
-        {key: true,name: "id",id: "id",label: "Código",placeholder: "Código",cols: 2, disabled: true,},
-        {name: "name",id: "name",label: "Nome",placeholder: "Nome",cols: 2,},
-        {name: "description",id: "description",label: "Descrição",placeholder: "Descrição",cols: 2,},
-        {name: "color",id: "color",label: "Cor",placeholder: "Cor",cols: 2,},
-    ]);
+interface IStatusForm {
+    show: boolean,
+    closeModal: () => void
+}
+
+export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
+    const { handleSubmit } = useForm();
+
+    const FOOTER = (
+        <GridSystem container justify="end" gap={5}>
+            <GenButton label="Gravar" col={4} onClick={handleSubmit} className="p-button-success"/>
+            <GenButton label="Continuar" col={4} onClick={closeModal} className="p-button-success"/>
+            <GenButton label="Fechar" col={4} onClick={closeModal} className="p-button-danger"/>
+        </GridSystem>
+    );
 
     return (
         <>
-            <GridSystem
-                container
-                justify="start"
-            >
-                <GridSystem
-                    item
-                    cols={12}
-                >
-                    <Form>
-                        <InputDefault
-                            name={"name"}
-                            id={"id"}
-                            label={"labe"}
-                            placeholder={"Input"}
-                        />
-                    </Form>
-                </GridSystem>
-            </GridSystem>
+            <Modal
+				header={"header"}
+				visible={show}
+				footer={FOOTER}
+				onHide={closeModal}
+			>
+                <Form>
+                    <InputDefault
+                        name={"user.name"}
+                        id={"id"}
+                        label={"labe"}
+                        placeholder={"Input"}
+                        col={4}
+                    />
+                    <InputDefault
+                        name={"user.email"}
+                        id={"id"}
+                        label={"labe"}
+                        placeholder={"Input"}
+                        col={4}
+                    />
+                    <InputDefault
+                        name={"age"}
+                        id={"id"}
+                        label={"labe"}
+                        placeholder={"Input"}
+                        col={4}
+                    />
+                </Form>
+			</Modal>
         </>
     );
 };

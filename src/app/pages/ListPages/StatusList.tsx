@@ -3,13 +3,12 @@ import { useFetch } from "../../hooks/useFetch";
 import { GridSystem } from "../../components/GridLayout/Grid/Grid";
 import { DataGrid, IColumnProps } from "../../components/DataTable/DataTable";
 import { GenButton } from "../../components/Form/Button/GenButton";
-import { Modal } from "../../components/Modal/Modal";
 import { StatusForm } from "../FormPages/StatusForm";
 import { Icons } from "../../helpers/Icons";
 
 export const StatusList: React.FC = () => {
     const { data, loading } = useFetch<any>("status");
-    const [ showModal, setShowModal ] = useState<boolean>(false);
+    const [ show, setShow ] = useState<boolean>(false)
     const [ campos ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID", description: "id"},
@@ -20,22 +19,15 @@ export const StatusList: React.FC = () => {
         ]
     );
 
-    const FOOTER = (
-        <>
-            <GridSystem container justify="end" height={40} alignItems gap={5} padding={15}>
-                <GenButton label="Gravar" col={1} onClick={() => setShowModal(true)} className="p-button-success"/>
-                <GenButton label="Continuar" col={1} onClick={() => setShowModal(true)} className="p-button-success"/>
-                <GenButton label="Fechar" col={1} onClick={() => setShowModal(true)} className="p-button-danger"/>
-            </GridSystem>
-        </>
-
-    );
+    const closeModal = () => {
+        return setShow(false)
+    }
 
     return (
         <>
             <GridSystem container justify="center">
                 <GridSystem container justify="start" height={40} gap={5}>
-                    <GenButton label="Inserir"  col={1} onClick={() => setShowModal(!showModal)} className="p-button-success" children={<Icons iconName={"FaCirclePlus"} />} />
+                    <GenButton label="Inserir"  col={1} onClick={() => setShow(true)} className="p-button-success" children={<Icons iconName={"FaCirclePlus"} />} />
                 </GridSystem>
                 <DataGrid
                     columns={campos}
@@ -44,14 +36,7 @@ export const StatusList: React.FC = () => {
                     loading={loading}
                 />
             </GridSystem>
-            <Modal
-				header={"header"}
-				visible={showModal}
-				footer={FOOTER}
-				onHide={() => setShowModal(!showModal)}
-			>
-				<StatusForm />
-			</Modal>
+            <StatusForm show={show} closeModal={closeModal}/>
         </>
     );
 };

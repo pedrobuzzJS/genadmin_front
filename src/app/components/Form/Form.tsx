@@ -1,26 +1,26 @@
 import React, { FormHTMLAttributes } from "react";
-import { useForm } from "../../context/formContext";
 import { GridSystem } from "../GridLayout/Grid/Grid";
+import { StyledForm } from "./style";
 interface IFormProps extends FormHTMLAttributes<HTMLFormElement> {
     children: React.ReactNode
 };
 
 export const Form: React.FC<IFormProps> = ({ children, ...props }) => {
-    var dot = require('dot-object');
-
-    const { handleSubmit } = useForm();
-
     if (children) {
         return (
-            <GridSystem container>
-                {children}
-            </GridSystem>
+            <StyledForm>
+                <GridSystem container gap={5} >
+                    {children}
+                </GridSystem>
+            </StyledForm>
         )
     } else {
         return (
-            <GridSystem container>
-                <h1>No caso que for passado array de fields</h1>
-            </GridSystem>
+            <StyledForm>
+                {/* <GridSystem container > */}
+                    <h1>No caso que for passado array de fields</h1>
+                {/* </GridSystem> */}
+            </StyledForm>
         )
     }
 };

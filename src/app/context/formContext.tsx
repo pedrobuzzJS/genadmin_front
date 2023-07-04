@@ -11,7 +11,7 @@ interface inputField {
 interface IFormProps {
     id?: any;
     formValues?: {};
-    handleSubmit: (e: React.FormEvent, urlBack: string, op: number) => void;
+    handleSubmit: (e: React.FormEvent) => void;
     addFormValues: () => void;
     sendValues: boolean;
     inputArrayValues: string;
@@ -39,63 +39,62 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
         return navigate("/"+url);
     }, [navigate]);
 
-    const handleSubmit = async (e: React.FormEvent, urlBack: string, op: number) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(fieldRefArray);
-        setSendValues(!sendValues);
+        // setSendValues(!sendValues);
         const formObj = await fieldRefArray.reduce((obj: any, item: any) => ((obj[item?.name] = item?.ref?.value), obj),{});
         const newObjectValues = dot.object(formObj);
         console.log(newObjectValues);
-        switch (op) {
-            case Operation.INSERT:
-                try {
-                    await api.post(urlBack, {
-                        data: JSON.stringify(newObjectValues)
-                    }).then(response => {
-                        const { status } = response;
-                        navigate(-1)
-                    }).catch(async error => {
-                    }).finally(
-                    );
-                } catch (error) {
-                    console.log(error);
-                };
-            break;
-            case Operation.ALTER:
-                try {
-                    await api["put"](urlBack, {
-                        data: JSON.stringify(newObjectValues)
-                    }).then(response => {
-                        const { status } = response;
-                        navigate(-1)
-                    }).catch(async error => {
-                    }).finally(
-                    );;
-                } catch (error) {
-                    console.log(error);
-                };
-            break;
-            case Operation.DELETE:
-                try {
-                    await api.delete(urlBack, {
-                            params: {
-                                id: dot.pick("id", newObjectValues)
-                            }
-                        }
-                    ).then(response => {
-                        const { status } = response;
-                        navigate(-1);
-                    }).catch(async error => {
-                    }).finally(
-                    );
-                } catch (error) {
-                    console.log(error);
-                };
-            break;
-            case Operation.VIEW:
-                navigate(-1);
-            break;
-        };
+        // switch (op) {
+        //     case Operation.INSERT:
+        //         try {
+        //             await api.post(urlBack, {
+        //                 data: JSON.stringify(newObjectValues)
+        //             }).then(response => {
+        //                 const { status } = response;
+        //                 navigate(-1)
+        //             }).catch(async error => {
+        //             }).finally(
+        //             );
+        //         } catch (error) {
+        //             console.log(error);
+        //         };
+        //     break;
+        //     case Operation.ALTER:
+        //         try {
+        //             await api["put"](urlBack, {
+        //                 data: JSON.stringify(newObjectValues)
+        //             }).then(response => {
+        //                 const { status } = response;
+        //                 navigate(-1)
+        //             }).catch(async error => {
+        //             }).finally(
+        //             );;
+        //         } catch (error) {
+        //             console.log(error);
+        //         };
+        //     break;
+        //     case Operation.DELETE:
+        //         try {
+        //             await api.delete(urlBack, {
+        //                     params: {
+        //                         id: dot.pick("id", newObjectValues)
+        //                     }
+        //                 }
+        //             ).then(response => {
+        //                 const { status } = response;
+        //                 navigate(-1);
+        //             }).catch(async error => {
+        //             }).finally(
+        //             );
+        //         } catch (error) {
+        //             console.log(error);
+        //         };
+        //     break;
+        //     case Operation.VIEW:
+        //         navigate(-1);
+        //     break;
+        // };
     };
 
     const getInitialValue = (name: string) => {

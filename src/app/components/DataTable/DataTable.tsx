@@ -28,7 +28,6 @@ export const DataGrid: React.FC<IGridProps> = ({
         ...props }) => {
     return (
         <GridSystem item cols={col}>
-            {/* <Container> */}
                 <DataTable
                     value={initialData}
                     className="dataTable"
@@ -36,8 +35,6 @@ export const DataGrid: React.FC<IGridProps> = ({
                     loading={loading}
                     stripedRows={stripedRows}
                     removableSort={true}
-                    // sortField="id"
-                    // sortOrder={0}
                     {...props}
                 >
                     {columns.map((col, i) => (
@@ -49,7 +46,6 @@ export const DataGrid: React.FC<IGridProps> = ({
                         />
                     ))}
                 </DataTable>
-            {/* </Container> */}
         </GridSystem>
     )
 };
