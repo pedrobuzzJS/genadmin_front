@@ -8,19 +8,20 @@ import { Modal } from "../../components/Modal/Modal";
 
 interface IStatusForm {
     show: boolean,
-    closeModal: () => void
+    closeModal: (callBack: any) => void
 }
 
 export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
-    const { handleSubmit } = useForm();
-
+    const { handleSubmit, formValues, clearFormValue } = useForm();
     const FOOTER = (
-        <GridSystem container justify="end" gap={5}>
+        <GridSystem container justify="end">
             <GenButton label="Gravar" col={4} onClick={handleSubmit} className="p-button-success"/>
-            <GenButton label="Continuar" col={4} onClick={closeModal} className="p-button-success"/>
+            <GenButton label="Limpar" col={4} onClick={clearFormValue} className="p-button-success"/>
             <GenButton label="Fechar" col={4} onClick={closeModal} className="p-button-danger"/>
         </GridSystem>
     );
+
+    console.log(formValues)
 
     return (
         <>
@@ -28,7 +29,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
 				header={"header"}
 				visible={show}
 				footer={FOOTER}
-				onHide={closeModal}
+				onHide={() => closeModal(closeModal)}
 			>
                 <Form>
                     <InputDefault

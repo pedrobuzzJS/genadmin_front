@@ -1,23 +1,16 @@
-import React, { createContext, PropsWithChildren, useCallback, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../services/api";
-import { Operation } from "../utils/Operation";
-// import { useSnackBar } from "./snackBarContext";
-
+import React, { createContext, PropsWithChildren, useContext, useState } from "react";
 interface inputField {
     name: any;
     ref: any;
 }
 interface IFormProps {
     id?: any;
-    formValues?: {};
+    formValues: {};
     handleSubmit: (e: React.FormEvent) => void;
-    addFormValues: () => void;
-    sendValues: boolean;
-    inputArrayValues: string;
+    clearFormValue: () => void;
+    sendingValues: boolean;
     setFormField: ({name, ref}: inputField) => void;
     getInitialValue: (name: string) => any;
-    buildMaintenanceURL: (btn: string, op: number, id?: any) => void;
 };
 
 interface FormWithChildren extends PropsWithChildren {};
@@ -25,84 +18,25 @@ interface FormWithChildren extends PropsWithChildren {};
 const FormContext = createContext<IFormProps>({} as IFormProps);
 
 export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
-    const [ sendValues, setSendValues ] = useState<boolean>(false);
-    const [ inputArrayValues, setInputArrayValues ] = useState("");
+    var dot = require('dot-object');
+    const [ sendingValues ] = useState<boolean>(false);
+    const [ formValues, setFormValues ] = useState<object>([]);
     const fieldRefArray: inputField[] = [];
     const setFormFieldArray = ({name, ref}: inputField) => {
         fieldRefArray.push({name, ref});
     };
-    var dot = require('dot-object');
-    const navigate = useNavigate();
-
-    const buildMaintenanceURL = useCallback( (btn: string, op: number, id?: any) => {
-        let url = `${btn}-manutencao/${op}/${id}`;
-        return navigate("/"+url);
-    }, [navigate]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // setSendValues(!sendValues);
-        const formObj = await fieldRefArray.reduce((obj: any, item: any) => ((obj[item?.name] = item?.ref?.value), obj),{});
-        const newObjectValues = dot.object(formObj);
-        console.log(newObjectValues);
-        // switch (op) {
-        //     case Operation.INSERT:
-        //         try {
-        //             await api.post(urlBack, {
-        //                 data: JSON.stringify(newObjectValues)
-        //             }).then(response => {
-        //                 const { status } = response;
-        //                 navigate(-1)
-        //             }).catch(async error => {
-        //             }).finally(
-        //             );
-        //         } catch (error) {
-        //             console.log(error);
-        //         };
-        //     break;
-        //     case Operation.ALTER:
-        //         try {
-        //             await api["put"](urlBack, {
-        //                 data: JSON.stringify(newObjectValues)
-        //             }).then(response => {
-        //                 const { status } = response;
-        //                 navigate(-1)
-        //             }).catch(async error => {
-        //             }).finally(
-        //             );;
-        //         } catch (error) {
-        //             console.log(error);
-        //         };
-        //     break;
-        //     case Operation.DELETE:
-        //         try {
-        //             await api.delete(urlBack, {
-        //                     params: {
-        //                         id: dot.pick("id", newObjectValues)
-        //                     }
-        //                 }
-        //             ).then(response => {
-        //                 const { status } = response;
-        //                 navigate(-1);
-        //             }).catch(async error => {
-        //             }).finally(
-        //             );
-        //         } catch (error) {
-        //             console.log(error);
-        //         };
-        //     break;
-        //     case Operation.VIEW:
-        //         navigate(-1);
-        //     break;
-        // };
+        const formObj = await fieldRefArray.reduce((obj: any, item: any) => ((obj[item?.name] = item?.ref?.value), obj),{})
+        const newObjectValues = dot.object(formObj)
+        return (setFormValues(newObjectValues))
     };
+
+    const clearFormValue = () => setFormValues({})
 
     const getInitialValue = (name: string) => {
         return name;
-    };
-
-    const addFormValues = () => {
-
     };
 
     return (
@@ -110,12 +44,11 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
             value={
                 {
                     handleSubmit: handleSubmit,
-                    addFormValues: addFormValues,
-                    sendValues: sendValues,
-                    inputArrayValues: inputArrayValues,
+                    sendingValues: sendingValues,
+                    formValues: formValues,
+                    clearFormValue: clearFormValue,
                     setFormField: setFormFieldArray,
                     getInitialValue: getInitialValue,
-                    buildMaintenanceURL: buildMaintenanceURL
                 }
             }
         >

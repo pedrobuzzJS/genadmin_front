@@ -9,7 +9,7 @@ export const Form: React.FC<IFormProps> = ({ children, ...props }) => {
     if (children) {
         return (
             <StyledForm>
-                <GridSystem container gap={5} >
+                <GridSystem container>
                     {children}
                 </GridSystem>
             </StyledForm>
@@ -17,9 +17,7 @@ export const Form: React.FC<IFormProps> = ({ children, ...props }) => {
     } else {
         return (
             <StyledForm>
-                {/* <GridSystem container > */}
-                    <h1>No caso que for passado array de fields</h1>
-                {/* </GridSystem> */}
+                <h1>No caso que for passado array de fields</h1>
             </StyledForm>
         )
     }

@@ -3,6 +3,7 @@ import { IGridSystem } from "./Grid";
 
 export const StyledGrid = styled.div<IGridSystem>`
     ${props => props?.container === true && css`
+        /* box-sizing: content-box; */
         margin: 0;
         padding: 0;
         display: flex;
