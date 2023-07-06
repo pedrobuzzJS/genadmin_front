@@ -6,7 +6,7 @@ interface inputField {
 interface IFormProps {
     id?: any;
     formValues: {};
-    handleSubmit: (e: React.FormEvent) => void;
+    handleSubmit: (callBack?: Function) => void;
     clearFormValue: () => void;
     sendingValues: boolean;
     setFormField: ({name, ref}: inputField) => void;
@@ -26,11 +26,12 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
         fieldRefArray.push({name, ref});
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (callBack?: Function) => {
         const formObj = await fieldRefArray.reduce((obj: any, item: any) => ((obj[item?.name] = item?.ref?.value), obj),{})
         const newObjectValues = dot.object(formObj)
-        return (setFormValues(newObjectValues))
+        setFormValues(newObjectValues)
+        if (callBack) callBack()
+        return true
     };
 
     const clearFormValue = () => setFormValues({})

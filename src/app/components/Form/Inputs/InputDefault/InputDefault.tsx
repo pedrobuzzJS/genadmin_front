@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { InputText, InputTextProps } from 'primereact/inputtext';
 import { useForm } from "../../../../context/formContext";
 import { Cols, GridSystem } from "../../../GridLayout/Grid/Grid";
+import { Inputcontainer } from "./style";
 interface InputProps extends InputTextProps {
     name?: string;
     id?: string;
@@ -21,7 +22,7 @@ export const InputDefault: React.FC<InputProps> = ({
     col=2,
     ...props
 }) => {
-    var dot = require('dot-object');
+    // var dot = require('dot-object');
     const [ inputValue, setInputValue ] = useState<any>('');
 
     const { setFormField } = useForm();
@@ -44,20 +45,23 @@ export const InputDefault: React.FC<InputProps> = ({
 
     return (
         <GridSystem item cols={col}>
-            <InputText
-                ref={inputRef}
-                name={name}
-                id={id}
-                onChange={handleOnChange}
-                placeholder={placeholder}
-                value={inputValue}
-                {...props}
-                style={
-                    {
-                        width: "100%"
+            <Inputcontainer>
+                <InputText
+                    ref={inputRef}
+                    name={name}
+                    id={id}
+                    onChange={handleOnChange}
+                    placeholder={placeholder}
+                    value={inputValue}
+                    {...props}
+                    style={
+                        {
+                            width: "100%",
+                            // padding: "15px"
+                        }
                     }
-                }
-            />
+                />
+            </Inputcontainer>
         </GridSystem>
     );
 };
