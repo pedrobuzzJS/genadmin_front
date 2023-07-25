@@ -25,16 +25,16 @@ export const InputDefault: React.FC<InputProps> = ({
     // var dot = require('dot-object');
     const [ inputValue, setInputValue ] = useState<any>('');
 
-    const { setFormField } = useForm();
+    const { setFormValue } = useForm();
 
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        setFormField({
+        setFormValue({
             name: inputRef.current?.name,
-            ref: inputRef.current
+            value: inputValue
         });
-    }, [setFormField]);
+    }, [inputValue, setFormValue]); 
 
     const handleOnChange = useCallback(
         (e: React.FormEvent<HTMLInputElement>) => {
@@ -46,21 +46,23 @@ export const InputDefault: React.FC<InputProps> = ({
     return (
         <GridSystem item cols={col}>
             <Inputcontainer>
-                <InputText
-                    ref={inputRef}
-                    name={name}
-                    id={id}
-                    onChange={handleOnChange}
-                    placeholder={placeholder}
-                    value={inputValue}
-                    {...props}
-                    style={
-                        {
-                            width: "100%",
-                            // padding: "15px"
+                <span className="p-float-label">
+                    <InputText
+                        ref={inputRef}
+                        name={name}
+                        id={name}
+                        onChange={handleOnChange}
+                        placeholder={placeholder}
+                        value={inputValue}
+                        {...props}
+                        style={
+                            {
+                                width: "100%",
+                            }
                         }
-                    }
-                />
+                    />
+                    <label htmlFor={name}>{label}</label>
+                </span>
             </Inputcontainer>
         </GridSystem>
     );
