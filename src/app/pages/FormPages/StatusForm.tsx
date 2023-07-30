@@ -85,7 +85,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
                     name="password"
                     col={3}
                 />
-                <GenCheckBox
+                {/* <GenCheckBox
                     name="check"
                     checked={false}
                 />
@@ -96,7 +96,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
                 <GenColor
                     name="color"
                     col={3}
-                />
+                /> */}
             </Form>
 		</Modal>
     );

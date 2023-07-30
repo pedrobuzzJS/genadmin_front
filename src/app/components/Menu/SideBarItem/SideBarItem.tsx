@@ -35,7 +35,10 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                         disabled={disabled}
                     >
                         <StyledMenuText>
-                            <span>{name}</span>
+                            <Icons
+                                iconName={'FaCirclePlus'}
+                            />
+                            <span>&nbsp;{name}</span>
                         </StyledMenuText>
                             {has_childrens === true && (
                                 <>
@@ -75,6 +78,9 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                             disabled={disabled}
                         >
                             <StyledMenuText>
+                                <Icons
+                                    iconName={"FaCirclePlus"}
+                                />
                                 <span>{name}</span>
                             </StyledMenuText>
                         </LinkContainer>

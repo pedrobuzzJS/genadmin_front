@@ -17,6 +17,7 @@ const AuthRoutes = () => {
                                 <Route path="tipo-despesa" element={<RoleProvider children={<DynamicComponentLoader component="ExpenseTypeList" />} funcao={[""]}/>}/>
                                 <Route path="menu" element={<RoleProvider children={<DynamicComponentLoader component="MenuList" />} funcao={[""]}/>}/>
                                 <Route path="status" element={<RoleProvider children={<DynamicComponentLoader component="StatusList" />} funcao={[""]}/>}/>
+                                <Route path="general-comfigs" element={<RoleProvider children={<DynamicComponentLoader component="GeneralConfig" />} funcao={[""]}/>}/>
                                 <Route path="*" element={<h1>404</h1>} />
                             </Routes>
                     </FormProvider>

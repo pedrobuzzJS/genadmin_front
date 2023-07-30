@@ -11,7 +11,7 @@ export const GenColor: React.FC<IGenColor> = ({
 	name,
 	...props
 }) => {
-	const [color, setColor] = useState<string>('');
+	const [color, setColor] = useState<string>('f0d453');
 
 	const { setFormValue } = useForm();
 
@@ -22,6 +22,10 @@ export const GenColor: React.FC<IGenColor> = ({
         });
     }, [color, name, setFormValue]);
 
+	const handleColor = (value: any) => {
+		setColor(value.target.value)
+	}
+
     return (
         <>
 			<ColorPicker
@@ -30,6 +34,7 @@ export const GenColor: React.FC<IGenColor> = ({
 				onChange={(e: any) => setColor(e.value)}
 				{...props}
 			/>
+			<input type="text" value={color} onChange={(e: any) => handleColor(e)}/>
 		</>        
     )
 }

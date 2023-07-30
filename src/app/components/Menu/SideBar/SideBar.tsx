@@ -65,19 +65,19 @@ export const SideBarLayout: React.FC<PropsWithChildren> = ({children}) => {
             >
                 <SideBarItemList>
                     {LinksTratados && LinksTratados?.map((item) => (
-                                            <SideBarItem
-                                                key={item.id}
-                                                id={item.id}
-                                                name={item.name}
-                                                icon={item.icon}
-                                                has_childrens={item.has_childrens}
-                                                childrens={item.childrens ?? item.childrens}
-                                                disabled={item.disabled}
-                                                parent_id={item.parent_id}
-                                                route={item?.route}
-                                            />
-                                            )
-                                        )
+                            <SideBarItem
+                                key={item.id}
+                                id={item.id}
+                                name={item.name}
+                                icon={item.icon}
+                                has_childrens={item.has_childrens}
+                                childrens={item.childrens ?? item.childrens}
+                                disabled={item.disabled}
+                                parent_id={item.parent_id}
+                                route={item?.route}
+                            />
+                            )
+                        )
                     }
                 </SideBarItemList>
             </SideBar>

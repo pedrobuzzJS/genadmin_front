@@ -75,4 +75,5 @@ export const ImgContainer = styled.div<Toggle>`
 export const StyledMenuText = styled.div`
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
 `;
