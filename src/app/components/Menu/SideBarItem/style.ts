@@ -7,7 +7,7 @@ interface Toggle {
 
 export const Container = styled.div<Toggle>`
     > div {
-        transition: all 0.2s;
+        transition: all 0.1s;
         margin-top: ${({ isSubMenuOpen }) => (isSubMenuOpen && isSubMenuOpen === true ? '' : '-40px')};
         margin-left: ${({ isSubMenuOpen }) => (isSubMenuOpen && isSubMenuOpen === true ? '' : '-250px')};
     }
@@ -24,7 +24,8 @@ interface LinkContainerToggle {
 export const LinkContainer = styled(Link)<LinkContainerToggle>`
     display: ${({ disabled }) => (disabled && disabled === true ? css`none` : css`flex`)};
     color: #fcfcfc;
-    justify-content: space-between;
+    justify-content: ${({ disabled }) => (disabled && disabled === true ? 'center' : 'space-between')};;
+    /* justify-content: space-between; */
     align-items: center;
     padding: 10;
     padding-left: 15px;
@@ -72,8 +73,12 @@ export const ImgContainer = styled.div<Toggle>`
     }
 `;
 
-export const StyledMenuText = styled.div`
+export const StyledMenuText = styled.div<LinkContainerToggle>`
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
+
+    > span {
+        /* display: ${({ disabled }) => (disabled && disabled === true ? 'block' : 'none')};; */
+    }
 `;

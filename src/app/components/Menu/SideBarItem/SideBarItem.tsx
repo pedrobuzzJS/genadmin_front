@@ -34,21 +34,23 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                         to={route || "#"}
                         disabled={disabled}
                     >
-                        <StyledMenuText>
+                        <StyledMenuText
+                            disabled={isOpen}
+                        >
                             <Icons
-                                iconName={'FaCirclePlus'}
+                                iconName='FaCirclePlus'
                             />
                             <span>&nbsp;{name}</span>
                         </StyledMenuText>
                             {has_childrens === true && (
-                                <>
-                                    <ImgContainer
-                                        isSubMenuOpen={isOpen}
-                                        onClick={openSubMenuList}
-                                    >
-                                        <Icons iconName="FaChevronDown" size={15}/>
-                                    </ImgContainer>
-                                </>
+                                    <>
+                                        <ImgContainer
+                                            isSubMenuOpen={isOpen}
+                                            onClick={openSubMenuList}
+                                        >
+                                            <Icons iconName="FaChevronDown" size={15}/>
+                                        </ImgContainer>
+                                    </>
                                 )
                             }
                     </LinkContainer>
@@ -77,7 +79,9 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                             to={route || "#"}
                             disabled={disabled}
                         >
-                            <StyledMenuText>
+                            <StyledMenuText
+                                disabled={isOpen}
+                            >
                                 <Icons
                                     iconName={"FaCirclePlus"}
                                 />
