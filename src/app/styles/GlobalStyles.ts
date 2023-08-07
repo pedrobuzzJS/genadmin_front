@@ -80,15 +80,34 @@ export default createGlobalStyle`
         max-height: 90%;
         
         .p-dialog-header {
-            /* height: 50px; */
-            background: #e2e2e2;
+            position: relative;
+
+            .p-dialog-header-icons {
+                position: absolute;
+                right: 15px;
+            }
+        
+
+            &::after {
+                content: "";
+                height: 2px;
+                background: #e2e2e2;
+                position: absolute;
+                bottom: 0;
+                left: 8px;
+                right: 8px;
+            }
+        }
+
+        .p-dialog-content {
+            background: #fafafa;
         }
 
         .p-dialog-footer {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background: #e2e2e2;
+            background: #fafafa;
         }
 
         .p-dialog-content {

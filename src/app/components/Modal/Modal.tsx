@@ -8,8 +8,8 @@ interface IModalProps extends DialogProps {
 export const Modal: React.FC<IModalProps> = ({
     children,
     header,
-    visible,
     footer,
+    visible,
     onHide,
     draggable=false,
     resizable=false,

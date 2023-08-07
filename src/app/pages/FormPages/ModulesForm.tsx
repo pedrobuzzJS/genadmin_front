@@ -8,13 +8,12 @@ import { Modal } from "../../components/Modal/Modal";
 import { GenChips } from "../../components/Form/Inputs/Chips/Chps";
 import { GenMask } from "../../components/Form/Inputs/InputMaks/InputMask";
 import { GenPassword } from "../../components/Form/Inputs/Password/Password";
-import { Icons } from "../../helpers/Icons";
 interface IStatusForm {
     show: boolean,
     closeModal: (callBack: any) => void
 }
 
-export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
+export const ModulesForm: React.FC<IStatusForm> = ({show, closeModal}) => {
     const { handleSubmit, formValues, clearFormValue } = useForm();
 
     const handleSubmitForm = async () => {
@@ -29,10 +28,10 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
     );
 
     const HEADER = (
-        <GridSystem container justify="start">
-            <h3><Icons iconName="FaCirclePlus"/> OlaS</h3>
+        <GridSystem container justify="start" alignItems>
+            <h3>Ola</h3>
         </GridSystem>
-    );
+    )
 
     return (
         <Modal

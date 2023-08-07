@@ -37,8 +37,7 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
     };
 
     const clearFormValue = () => {
-        setFormValues([])
-        fieldRefArray.length = 0
+        setFormValues({})
     }
 
     return (
