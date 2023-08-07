@@ -29,6 +29,10 @@ export default createGlobalStyle`
         background: #eee;
     }
 
+    /***********************/
+    /* DEFAULT VAR COLORS  */
+    /********************* */
+
     :root {
         --primary:      #007BFF;
         --secondary:    #6C757D;
@@ -65,9 +69,9 @@ export default createGlobalStyle`
         --group-background-focus: #678EFE;
     }
 
-    /* ************* */
+    /*****************/
     /* MODAL STYLES  */
-    /* ************* */
+    /*****************/
 
     .p-dialog {
         min-width: 50%;
