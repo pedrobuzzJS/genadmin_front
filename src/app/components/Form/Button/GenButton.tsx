@@ -5,8 +5,9 @@ import { Cols, GridSystem } from "../../GridLayout/Grid/Grid";
 // type ButtonTypes = 'p-button-secondary' | 'p-button-success' | 'p-button-info' | 'p-button-warning' | 'p-button-help' | 'p-button-danger';
 interface IButtonProps extends ButtonProps {
     className?: string;
-    col?: Cols
-    padding?: number
+    col?: Cols;
+    padding?: number;
+    can?: string[]
 };
 
 export const GenButton: React.FC<IButtonProps> = ({

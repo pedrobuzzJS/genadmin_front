@@ -9,7 +9,7 @@ import { ModulesForm } from "../FormPages/ModulesForm";
 export const ModulesList: React.FC = () => {
 	const { data, loading } = useFetch<any>("modules");
     const [ show, setShow ] = useState<boolean>(false)
-    const [ campos ] = useState<IColumnProps[]>(
+    const [ columns ] = useState<IColumnProps[]>(
         [
             { isKey: true, field: "id", header: "ID", description: "id"},
             { field: "name", header: "Nome", description: "Nome"},
@@ -29,7 +29,7 @@ export const ModulesList: React.FC = () => {
                     <GenButton label="Inserir"  col={1} onClick={() => setShow(true)} className="p-button-success" children={<Icons iconName={"FaCirclePlus"} />} />
                 </GridSystem>
                 <DataGrid
-                    columns={campos}
+                    columns={columns}
                     initialData={data}
                     col={12}
                     loading={loading}

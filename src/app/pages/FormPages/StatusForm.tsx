@@ -15,7 +15,7 @@ interface IStatusForm {
 }
 
 export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
-    const { handleSubmit, formValues, clearFormValue } = useForm();
+    const { handleSubmit, clearFormValue } = useForm();
 
     const handleSubmitForm = async () => {
     }
@@ -30,7 +30,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
 
     const HEADER = (
         <GridSystem container justify="start">
-            <h3><Icons iconName="FaCirclePlus"/> OlaS</h3>
+            <h3><Icons iconName="FaCircleDot"/> OlaS</h3>
         </GridSystem>
     );
 
@@ -50,13 +50,13 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
                     disabled
                 />
                 <InputDefault
-                    name={"person.name"}
+                    name={"name"}
                     label={"Nome"}
                     placeholder={"name"}
                     col={3}
                 />
                 <InputDefault
-                    name={"person.description"}
+                    name={"description"}
                     label={"Descricao"}
                     placeholder={"description"}
                     col={3}
@@ -67,7 +67,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
                     placeholder={"color"}
                     col={3}
                 />
-                <GenChips
+                {/* <GenChips
                     name="test.chip"
                     col={3}
                     placeholder="Chip"
@@ -81,7 +81,7 @@ export const StatusForm: React.FC<IStatusForm> = ({show, closeModal}) => {
                 <GenPassword
                     name="password"
                     col={3}
-                />
+                /> */}
                 {/* <GenCheckBox
                     name="check"
                     checked={false}
