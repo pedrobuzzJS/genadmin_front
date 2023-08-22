@@ -44,25 +44,18 @@ export const InputDefault: React.FC<InputProps> = ({
     );
 
     return (
-        <GridSystem item cols={col}>
+        <GridSystem item cols={col} justify="center">
             <Inputcontainer>
-                <span className="p-float-label">
-                    <InputText
-                        ref={inputRef}
-                        name={name}
-                        id={name}
-                        onChange={handleOnChange}
-                        placeholder={placeholder}
-                        value={inputValue}
-                        {...props}
-                        style={
-                            {
-                                width: "100%",
-                            }
-                        }
-                    />
-                    <label htmlFor={name}>{label}</label>
-                </span>
+                <label htmlFor={name}>{label}</label>
+                <InputText
+                    ref={inputRef}
+                    name={name}
+                    id={name}
+                    onChange={handleOnChange}
+                    // placeholder={placeholder}
+                    value={inputValue}
+                    {...props}
+                />
             </Inputcontainer>
         </GridSystem>
     );

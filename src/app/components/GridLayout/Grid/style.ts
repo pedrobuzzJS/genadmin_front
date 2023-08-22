@@ -13,7 +13,7 @@ export const StyledGrid = styled.div<IGridSystem>`
         justify-content: ${props?.justify};
         padding-left: ${props.padding ?? 0}px;
         padding-right: ${props.padding ?? 0}px;
-        gap: ${props.gap ?? 0}px;
+        /* gap: ${props.gap ?? 0}px; */
     `}
 
     ${props => props?.container === true && props.alignItems && css`

@@ -69,6 +69,12 @@ export default createGlobalStyle`
         --group-background-focus: #678EFE;
     }
 
+    /**********/
+    /* inputs */
+    /**********/
+
+    
+
     /*****************/
     /* MODAL STYLES  */
     /*****************/
@@ -94,7 +100,7 @@ export default createGlobalStyle`
 
             &::after {
                 content: "";
-                height: 2px;
+                height: 1px;
                 background: #e2e2e2;
                 position: absolute;
                 bottom: 0;

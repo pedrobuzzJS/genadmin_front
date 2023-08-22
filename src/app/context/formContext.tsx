@@ -19,7 +19,6 @@ const FormContext = createContext<IFormProps>({} as IFormProps);
 export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
     var dot = require('dot-object');
     const [ formValues, setFormValues ] = useState<object>([]);
-    const fieldRefArray: inputField[] = [];
 
     let form: object
 

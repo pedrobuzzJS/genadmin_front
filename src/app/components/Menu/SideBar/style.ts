@@ -6,7 +6,7 @@ interface ShowMenuToggle {
 }
 
 export const SideBar = styled.aside<ShowMenuToggle>`
-    background: #463f64;
+    background: #2b303b;
     height: 100%;
     width: ${({ disabled }) => (disabled && disabled === true ? '250px' : '50px')};
     transition: all 0.4s;
@@ -31,7 +31,7 @@ export const HambugerMenu = styled.div<ShowMenuToggle>`
     height: 50px;
     width: ${({ disabled }) => (disabled && disabled === true ? '250px' : '50px')};
     color: #fff;
-    background: #463f64;
+    background: #2b303b;
     cursor: pointer;
     transition: all 0.4s;
 `;

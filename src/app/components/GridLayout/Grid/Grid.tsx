@@ -40,7 +40,7 @@ export const GridSystem: React.FC<IGridSystem> = ({
             cols={cols}
             justify={justify}
             direction={direction}
-            gap={gap}
+            gap={5}
             height={height}
             alignItems={alignItems}
             {...props}
