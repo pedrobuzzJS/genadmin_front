@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { InputSwitch, InputSwitchChangeEvent, InputSwitchProps } from "primereact/inputswitch";
+import { InputSwitch, InputSwitchProps } from "primereact/inputswitch";
 import { useForm } from "../../../../context/formContext";
 
 interface IGenSwitch extends InputSwitchProps {

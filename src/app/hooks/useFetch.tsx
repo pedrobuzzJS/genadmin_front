@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import api from "../services/api";
 import { AxiosRequestConfig } from "axios";
 
-export function useFetch<T = unknown>(url: string, options?: AxiosRequestConfig | any) {
+export function useFetch<T = unknown>(url: string, options?: AxiosRequestConfig) {
     const [ data, setData ] = useState<T | null>();
     const [ statusCode, setStatus ] = useState<any>(null);
     const [ error, setError ] = useState<Error | null>(null);

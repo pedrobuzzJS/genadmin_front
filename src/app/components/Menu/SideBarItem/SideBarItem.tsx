@@ -24,6 +24,7 @@ export const SideBarItem: React.FC<LinkMenu> = ({
     const openSubMenuList = useCallback(() => {
         setIsOpen(!isOpen);
     }, [isOpen]);
+    console.log(icon)
     if (childrens) {
         return (
             <>
@@ -38,7 +39,7 @@ export const SideBarItem: React.FC<LinkMenu> = ({
                             disabled={isOpen}
                         >
                             <Icons
-                                iconName='FaCirclePlus'
+                                iconName={'FaCirclePlus'}
                             />
                             <span>&nbsp;{name}</span>
                         </StyledMenuText>

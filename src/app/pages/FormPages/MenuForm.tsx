@@ -112,11 +112,11 @@ export const MenuForm: React.FC = () => {
         },
     ]);
     const { op, id } = useParams();
-    const { data } = useFetch<any>("menu", {
-        params: {
-            id: id
-        }
-    });
+    // const { data } = useFetch<any>("menu", {
+    //     param: {
+    //         id: id
+    //     }
+    // });
 
     return (
         <>

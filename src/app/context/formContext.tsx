@@ -20,7 +20,7 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
     var dot = require('dot-object');
     const [ formValues, setFormValues ] = useState<object>([]);
 
-    let form: object
+    let form: any
 
     const setFormValue = ({name, value}: inputField) => {
         form = {
@@ -30,7 +30,7 @@ export const FormProvider: React.FC<FormWithChildren> = ({children}) => {
     };
 
     const handleSubmit = async (callBack?: Function) => {
-        console.log(dot.object(form))
+        let data = Object.keys(dot.object(form)).map((key) => [key, form[key]]);
         if (callBack) callBack()
         return true
     };

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { InputText, InputTextProps } from 'primereact/inputtext';
 import { useForm } from "../../../../context/formContext";
 import { Cols, GridSystem } from "../../../GridLayout/Grid/Grid";
-import { Inputcontainer } from "./style";
+import { FormField, FormLabel, InputLabel, Inputcontainer, LeftSpan, RightSpan } from "./style";
 interface InputProps extends InputTextProps {
     name?: string;
     id?: string;
@@ -46,16 +46,23 @@ export const InputDefault: React.FC<InputProps> = ({
     return (
         <GridSystem item cols={col} justify="center">
             <Inputcontainer>
-                <label htmlFor={name}>{label}</label>
-                <InputText
-                    ref={inputRef}
-                    name={name}
-                    id={name}
-                    onChange={handleOnChange}
-                    // placeholder={placeholder}
-                    value={inputValue}
-                    {...props}
-                />
+                <FormLabel>
+                    <LeftSpan>
+                        <InputLabel htmlFor={name}>{label}</InputLabel>
+                    </LeftSpan>
+                    <RightSpan></RightSpan>
+                </FormLabel>
+                <FormField>
+                    <InputText
+                        ref={inputRef}
+                        name={name}
+                        id={name}
+                        onChange={handleOnChange}
+                        // placeholder={placeholder}
+                        value={inputValue}
+                        {...props}
+                    />
+                </FormField>
             </Inputcontainer>
         </GridSystem>
     );

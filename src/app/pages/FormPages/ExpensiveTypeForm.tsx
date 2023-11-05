@@ -32,11 +32,11 @@ export const ExpenseTypeForm: React.FC = () => {
         },
     ]);
     const { op, id } = useParams();
-    const { data } = useFetch<any>("tipo-despesa", {
-        params: {
-            id: id
-        }
-    });
+    // const { data } = useFetch<any>("tipo-despesa", {
+    //     params: {
+    //         id: id
+    //     }
+    // });
 
     return (
         <>

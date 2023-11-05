@@ -104,8 +104,8 @@ export default createGlobalStyle`
                 background: #e2e2e2;
                 position: absolute;
                 bottom: 0;
-                left: 8px;
-                right: 8px;
+                left: 0;
+                right: 0;
             }
         }
 
@@ -114,10 +114,20 @@ export default createGlobalStyle`
         }
 
         .p-dialog-footer {
+            background-color: #ffffff;
+            position: relative;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            background: #fafafa;
+
+            &::before {
+                content: "";
+                height: 1px;
+                background: #e2e2e2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
         }
 
         .p-dialog-content {

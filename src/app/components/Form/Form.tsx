@@ -14,11 +14,10 @@ export const Form: React.FC<IFormProps> = ({ children, ...props }) => {
                 </GridSystem>
             </StyledForm>
         )
-    } else {
-        return (
-            <StyledForm>
-                <h1>No caso que for passado array de fields</h1>
-            </StyledForm>
-        )
-    }
+    } 
+    return (
+        <StyledForm>
+            <h1>No caso que for passado array de fields</h1>
+        </StyledForm>
+    )
 };

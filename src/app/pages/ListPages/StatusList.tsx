@@ -29,12 +29,14 @@ export const StatusList: React.FC = () => {
                 <GridSystem container justify="start" height={40} gap={5}>
                     <GenButton label="Inserir"  col={1} onClick={() => setShow(true)} className="p-button-success" children={<Icons iconName={"FaCirclePlus"} />} />
                 </GridSystem>
-                <DataGrid
-                    columns={campos}
-                    initialData={data}
-                    col={12}
-                    loading={loading}
-                />
+                <GridSystem container justify="center">
+                    <DataGrid
+                        columns={campos}
+                        initialData={data}
+                        col={12}
+                        loading={loading}
+                    />
+                </GridSystem>
             </GridSystem>
             <StatusForm show={show} closeModal={closeModal}/>
         </>
